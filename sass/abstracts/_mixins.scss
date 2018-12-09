@@ -1,0 +1,16 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin foot-animation {
+  display: inline-block;
+  position: relative;
+  animation: walk 25s steps(15, end);
+  animation-fill-mode: backwards;
+  animation-iteration-count: infinite;
+
+}

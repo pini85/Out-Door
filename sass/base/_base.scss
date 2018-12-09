@@ -1,0 +1,23 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  //It is better practice to inherit border-boxing because if for example
+  //we want to use a plugin. It is easier to modify the boz-sizing.
+}
+
+html {
+  /* We want the root font-size to be 10px so we can easily convert rem. But if its is 10px
+  then if a user wants to change the font-size they cannot. So we convert it to percentages.
+  The default font-size is 16px and we want it to 10px so 10 / 16 = 0.625
+  So 0.625 * 16 = 10px if the user changes the font size to 20px then the root
+  default size will be 12.5px 0.625 * 20 = 12.5 */
+  //This defines what 1 rem will be
+  font-size: 62.5%;
+}
+body {
+  box-sizing: border-box;
+  color: $color-grey-dark;
+}

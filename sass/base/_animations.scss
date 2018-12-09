@@ -1,0 +1,45 @@
+/* to have smooth animations only play with opacity and transform. Never nothing else */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes up {
+  0% {
+    opacity: 0;
+    transform:translateY(10rem);}
+  100% { opacity: 1; }
+
+  }
+
+// Foot print
+
+@keyframes walk{
+
+  0% {
+    opacity: 0
+  }
+
+  4% {
+    opacity: 0.15;
+  }
+
+  78%{
+    opacity:0;
+  }
+
+
+  to {
+    opacity: 0;
+    transform: translate(1700px, -1000px);
+  }
+}
+
+
+
+
+

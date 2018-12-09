@@ -1,0 +1,30 @@
+.section-about {
+  background-color:$color-grey-light-1;
+  padding: 25rem 0;
+  margin-top: -20vh;
+}
+
+.section-features {
+  margin-top: -11rem;
+  padding: 20rem 0;
+  background-image: linear-gradient(to right bottom,
+  rgba($color-primary, 0.8),
+  rgba($color-primary-dark, 0.8)),
+  url(../img/nat-4.jpg);
+  background-size: cover;
+  transform: skewY(-7deg);
+
+  & > * { // we want to modify the boxes so that they skey to the opposite direction. We are using the > the direct children * all
+    //of them. if we didnt use > we would be aiming at all the children but we want only the direct children. The first child Which in our case is the row.
+    //If not all the h3 and p and will be skewed too.
+   transform: skewY(7deg);
+  }
+}
+
+.section-tours {
+  margin-top: -11rem;
+  background-color:$color-grey-light-1;
+  padding: 25rem 0 30rem 0;
+
+}
+

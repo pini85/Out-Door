@@ -1,0 +1,53 @@
+.composition {
+  position: relative;
+
+
+  &__photo {
+    position: absolute;
+    width: 55%;//Always use width: percentage when dealing with images. Because this is one
+    //of the ingredients of responsive webdesign. Flexible images this way it will nicely
+    //scale with the viewpoint
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+    border-radius: 2px;
+    transition: all .3s;
+    outline-offset: 1rem;// offsetting the "border"
+
+  &--p1 {
+
+    left: 0;
+    top: -2rem;
+
+  }
+
+
+  &--p2 {
+    right: 0;
+    top:2rem;
+
+  }
+
+
+  &--p3 {
+    left: 20%;// Here to with percentages because it is an image.
+    top: 10rem;
+
+  }
+
+  &:hover {
+    outline: 1.5rem solid rgba($color-primary, .6);// This is like an ordinary border;
+    transform: scale(1.05);
+    box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+    z-index: 1;
+    transform: translateY(-.5rem);
+  }
+  }
+  // this parent is not .composition. We closed the rest above.
+  &:hover &__photo:not(:hover) {
+//composition:hover composition_photo:not(:hover)
+    transform: scale(.95)
+
+  }
+
+}
+
+

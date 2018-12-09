@@ -1,0 +1,75 @@
+
+//Functionality
+.card {
+  perspective: 150rem; // in order to make perspective to work you need to put it on the parent element and handle the rotation on the
+   //child element this is why we need to create a new div. To make a child element and put all the rotation logic there.
+   // you can use use transfrom: perspective() to a child element but that will effect only the child element. We want to effect all
+   // child elements that are inside this parent element.
+   position: relative;
+   height: 50rem;// we need to give this the same height as &__side because the parents height collapsed because the elements are taken
+   //away from their natural flow for declaring them position:absolute. If not our persepctive wont come into place.
+  &__side {
+  color: white;
+  font-size: 3rem;
+  background-color: red;
+  height: 50rem;
+  transition: all 1.1s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;// we need to give a width 100% because we used position absolute. so both will be the same width no matter the content.
+  backface-visibility: hidden;// this hides the back part of the element. So the front wont be visible when it is 180 deg.
+  border-radius: 3px;
+  overflow: hidden;//the image below is overflowing the parent element so blocking the border radious.
+  box-shadow: 0 1.5rem 4rem rgba($color-black, .20);
+
+    &--front {
+
+      background-color: $color-white;
+
+    }
+
+    &--back {
+       transform: rotateY(180deg);// the back card in its inital state is in the back. Only when we hover it it will come to the front
+       //for everybody to see.
+
+      &--1 {
+        background-image: linear-gradient(to bottom right, $color-secondary-light 0%, $color-secondary-dark 74%);
+      }
+    }
+  }
+
+
+  &:hover &__side--front{// we want to say is when we hover the card then the card__side will be transformed.
+//.card:hover .card__side
+// and we dont want to put the hover in the card__side because later we will have more sides. Also it makes more sense that we want to hover
+//the main block.
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+  //Front side styling
+  &__picture {
+    height: 23rem;
+    background-size: cover;
+    background-blend-mode: color;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    -webkit-clip-path: polygon(0 0 100% 0 100% 80%, 0 100%);
+
+
+    &--1 {
+     background-image: linear-gradient(to bottom right, $color-secondary-light 0%, $color-secondary-dark 74%), url(../img/mountain.jpg);
+
+    }
+    &--2 {
+
+    }
+    &--3 {
+
+    }
+  }
+}
+
+ // background-image: linear-gradient(to bottom right, rgba($color-secondary-light, .8), rgba($color-secondary-dark, .8)), url(../img/mountain.jpg);

@@ -1,0 +1,17 @@
+.foot-print-right {
+  @include foot-animation;
+  top: 67vh;
+  left: 15vw;
+  animation-delay: 1.2s;
+}
+
+.foot-print-left {
+  @include foot-animation;
+  top: 69vh;
+  right: 4vw;
+  animation-delay: 1.7s;
+}
+
+.foot-print-img {
+  height: 20rem;
+}

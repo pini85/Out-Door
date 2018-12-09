@@ -1,0 +1,80 @@
+.btn {
+
+  &:link,
+  &:visited {
+  padding: 1.5rem 4rem;
+  text-decoration: none;
+  display: inline-block; /* to get a gap between the content and the button */
+  color: $color-grey-dark;
+  border-radius: 10rem;
+  transition: all .2s;
+  position: relative;
+  font-size: $default-font-size;
+}
+//3rd level nesting. And you should only nest maximum 3 levels.
+  &:hover {
+    transform: translateY(-0.3rem); /* to make it seen like it is moving towards the user */
+    box-shadow: 0 1rem 2rem rgba($color-black,.2);
+      &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+}
+  }
+
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 .5rem 1rem rgba($color-black,.2);
+  }
+  //3rd level nesting. And you should only nest maximum 3 levels.
+  &--white { background-color: $color-white;
+    &:after {
+      background-color: $color-white;
+    }
+
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+  }
+
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+  display: inline-block;
+  color: $color-primary;
+  font-size: 2rem;
+  text-decoration: none;
+  padding: 0 10px 3px 10px;
+
+  border-bottom: 1px solid $color-primary;
+  transition: all .2s;
+
+  }
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2px rgba($color-black, .13);
+    transform: translateY(-2px);
+
+  }
+
+  &:active {
+    transform: translateY(0px);
+    box-shadow: 0 0.5rem 1px rgba($color-black, .13);
+
+  }
+
+
+}

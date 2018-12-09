@@ -1,0 +1,34 @@
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom,
+  rgba($color-primary, 0.8),
+  rgba($color-primary-dark, 0.8)),
+  url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top; /* the top will not move when resizing. */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  position: relative;
+
+    &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+
+    &__logo { height: 4rem; }
+
+    &__text-box {
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* It is now 50% from the left. So the whole element
+    but we want it to be in the middle so -50% will will take 50% of the whole element on
+    the left side and 50% from the top. So it will be in the middle. */
+  }
+}
+//A good practice is to nest The EM in B "BEM" block elements and block element modifiers. So afterwards you can easily find
+// the block and all the elements that are incapsulated in it.
+
+
