@@ -1,0 +1,22 @@
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: .20;
+  overflow: hidden; // it was covering also the padding of our website. So with this it does not.
+
+  &__content {
+    width: 100%;
+    height: 100%;
+    //we do this so the video will cover the whole section and not over flow or de-flow.
+    //but this alone wont do it. Because the video will now try to use its aspect ratio it wont still cover everything.
+    object-fit: cover; // this will cover the whole parent element with still maintaining its aspect ratio.
+    //part of the video that doesnt fit the parent element will be clipped out.
+    //you can also work with images as well. A parent element a image and with object fit you can cover it.
+    // you can also use fill which will fill everything but not keep the aspect ratio.
+
+  }
+}

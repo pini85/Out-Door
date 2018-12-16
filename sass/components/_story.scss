@@ -1,0 +1,78 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color-black, .1);
+  border-radius: 3px;
+  background-color: rgba($color-white, .5); /*we cannot use opacity on this div or then also the image and text will have opacity. */
+  padding: 6rem;
+  padding-left: 9rem; /*we added 3 rem more because of the transform above*/
+  font-size: $default-font-size;
+  transform: skewX(-12deg);
+
+
+  & > * { /*this should work with all children but since we have already transform in shape it wont work there*/
+    transform: skewX(12deg);
+
+  }
+
+  &__shape {
+    position: relative;
+    height: 15rem;
+    width: 15rem;
+    float: left;
+    /*this only works if we defined a fixed height and width and we defined a float*/
+    /*shape-outside defined's where the content flows around the element. We defined a circle. But
+    we also need to make that circle shape so we make it with clip=path*/
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    /*we can make a shape the same way as clip-path. 50% = size of the circle
+    radious of the circle. 50% half the height and width of the element which is 7.5rem
+    the other 50% 50% is the position horizontally and vertically */
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg); /*we don't use margins to separate the circle and the text because the circle is floated.
+    Anytime an element is a circle try not to use margins.*/
+    /*We need to add skewX to shape as well since they already have a transform property. In the future this will not be the case*/
+  }
+
+  &__img {
+    height:100%; /*because this image is inside the &__shape which was a fixed height and width*/
+    transform: translateX(-4rem) scale(1.4); /*To make the image in the center of our liking*/
+    backface-visibility: hidden; /* because we used the animation transform it gave a wierd result.
+    Each time we use animation and it doesnt work as we want it to backface-visibility usually fixes it */
+    transition: all .5s;
+
+  }
+
+  &__text {
+
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: $color-white;
+    transform: translate(-50%, 20%);
+    text-transform: uppercase;
+    font-size:1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all .5s;
+    backface-visibility: hidden;
+
+  }
+
+  &:hover &__caption { /*as soon as we hover on the story we want to change the text on the caption*/
+  transform: translate(-50%,-50%);/* that was the initial position in the transform above*/
+  opacity: 1;
+  }
+
+  &:hover &__img {
+    transform: scale(1.5);
+    backface-visibility: hidden;
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%);
+  }
+
+}

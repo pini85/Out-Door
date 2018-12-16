@@ -1,0 +1,107 @@
+.popup {
+
+  height: 100vh;
+  width: 100%;
+  background-color: rgba($color-black, .8);
+  position: fixed;// when ever it is fixed you need to put the top and left because it is
+  //taken from its natural flow.
+  top: 0;
+  left: 0 ;
+  z-index: 3000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s;
+
+  &__content {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 2rem 4rem rgba($color-black, .2);
+    border-radius: 3px;
+    width: 75%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(.25);
+    opacity: 0;
+    display: table;//displaying both left and right as table cells makes them the same height
+    //We are faking it that this is a table.
+    overflow: hidden;//images was covering the border-radious
+    transition: all .5s .2s;// .2s is a delay. So we first see the blackb ackground which is the .popup
+    }
+
+    &__left {
+      width: 33.3333333%;
+      display: table-cell;
+
+    }
+
+    &__right {
+      width: 66.6666667%;
+      display: table-cell;
+      vertical-align: middle;//since they are the same height. The right will be in the middle of
+      //the table-cell.
+      padding: 0rem 5rem;
+
+    }
+
+    &__image {
+      display:block;
+      width: 100%;
+
+    }
+
+    &__text {
+      font-size: 1.4rem;
+      margin-bottom: 4rem;
+
+      column-count: 2;//2 columns simply
+      column-gap: 4rem;//the default is 1em which is 1.4rem because em takes the default sfont0size 1.4rem
+      column-rule: 1px solid $color-grey-light;// gives you the line between.
+
+      hyphens: auto;//only works on chrome android and IE Firefox
+      //<html lang="en"> you need to put this in your html.
+
+    }
+
+    //open states. When the popup is open
+
+    &:target {// means when the achor is pointing to this div which has the id which is "targeted".
+    //since the id is inside the class popup the entire element becomes the target.
+    //this is the popup container
+    opacity: 1;
+    visibility: visible;
+    }
+
+    &:target &__content {//we want to style the content box when the popup target is activated.
+      transform: scale(1) translate(-50%, -50%);
+      opacity: 1;
+
+
+
+    }
+
+// The target is now set to #section-tours via the button with the class "close" below so when we click on it, it will achor us to
+// that element and also the target will no longer apply so it will make it invinisible again.
+// Back to its initial state.
+
+  &__close {
+
+      &:link,
+      &:visited {
+      position: absolute;// we dont need to define a relative to the parent because &__right
+      //hasn't been defined so the parent is content and that is what we want it to be positioned to.
+      top: 2.5rem;
+      right: 2.5rem;
+      text-decoration: none;
+      color: $color-grey-dark;
+      font-size: 3rem;
+      line-height: 1rem;//it has a default line-height of 51px so it wasnt positioned perfectly.
+      transition: all .2s;
+
+      &:hover { color: $color-primary; }
+
+     }
+  }
+
+}
+
+

@@ -1,0 +1,145 @@
+.book {
+  background-image: linear-gradient(105deg,rgba($color-white, .9) 50%, transparent 50%), url(../img/nat-10.jpg);
+  //To establish this effect we could also make a new element and use clip path with opacity but there is a simplier way:
+//Above you need clip-path but with this you do not need. Different tools for different things.
+// linear-gradient(rgba($color-white, .9),rgba(orangered, .9)) it means color white to orange red both have 90% opacity
+
+//linear-gradient(90deg,rgba($color-white, .9), rgba(orangered, .9)) instead of using bottom right this will go with deg from the axis direction.
+
+//linear-gradient(90deg,rgba($color-white, .9) 10%,rgba(orangered, .9)) you can say you want to the white color to use 10% after that
+//implement the orangered.
+
+//linear-gradient(105deg,rgba($color-white, .9) 10%, orangered 50%) you can also say i want it to be completely orangered at 50%
+//background-image: linear-gradient(105deg,rgba($color-white, .9) 50%, transparent 50%) so now what we say is 50% be white then the other 50%
+//become a color which is transparent. There will be a solid line and no gradient occurs because it is 50% 50% not 40% 50% for example.
+
+  background-size: 100%;
+  // if we used Background:cover it would scale the background image to be as large as possible so that the
+ // background area is completely covered by the background image. Some parts of the background image may not be in view within the
+  //background positioning area.
+  //Basically it zooms in until the innermost edges are touching the side, which means that some of the image may be cut off, unlike
+  //100% where all of the image will be visible.
+  // but here you can do both.
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
+  height: 50rem;
+
+  &__form {
+    width: 50%;
+    padding: 6rem;
+  }
+}
+
+  .form {
+
+    &__group {
+
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+
+    }
+
+    &__input {
+      display:block;// so that the label text will go to the next line and not next to the input field.
+      font-size: 1.5rem;
+      color: inherit;
+      font-family: inherit; //by default html changes our established font-family and color. So we need to override it.
+      width: 90%;
+      padding: 1.5rem 2rem; // always with buttons and form elements give on the side more padding because it makes the elements look better.
+      border-radius: 2px;
+      background-color: rgba($color-white, .5);
+      border: none;
+      border-bottom: 3px solid transparent;// as soon as we focus on the input it creates a 3px border botton
+      //and it makes our design a bit off. But with this it will stay the same.
+      transition: all .4s;// animation from red to green. green to red.
+
+      &:focus {
+        outline: none;// same like we had in the composition. The browser gives input automatically one
+        //but we should never not give a outline. People who only use a keyboard would
+        //want to know what label is now focused. So we create our custom one.
+        box-shadow: 0 1rem 2rem rgba($color-black, .1);
+        border-bottom: 3px solid $color-primary;
+
+        &:invalid {
+          border-bottom: 3px solid $color-red;
+        }
+      }
+
+      &::-webkit-input-placeholder {
+        color: $color-grey-dark;
+      }
+    }
+
+
+    &__label {
+      display: block;// need to put this as a block or else its inline and the box model whixh is padding margin wont apply.
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-left: 2rem;
+      margin-top: .7rem;
+      transition: all .5s;
+    }
+
+    &__input:placeholder-shown + &__label {// we cannot nest it in the label. So we need to create new &__label. We cannot write this:
+      // &__input:placeholder-shown &__label because they are both siblings it is not a child of input + means direct sibling. And
+      // ~ this for the next sibling if there are divs or buttons in the way for example. This is why in the html it is first input then the label.
+      // not the other way because then the + wont work.
+      opacity: 0;// we need opacity to animate the effect coming to opacity:1
+      visibility: hidden;
+      transform: translateY(-4rem);
+    }
+
+    &__radio-group {
+      width: 49%;
+      display: inline-block; // we could of used floats to set them side by side. But inline-block shuold do as well.
+    }
+
+    &__radio-input { display:none; } // we want to hide the html custom radio button. And not give it space at all.
+
+    &__radio-label {
+      font-size: $default-font-size;
+      cursor: pointer;
+      position: relative;
+      padding-left: 5rem;
+    }
+
+    &__radio-button {
+      height: 3rem;// in order to make it round we need the height and the width the same
+      width: 3rem;
+      border: 5px solid $color-primary;
+      border-radius: 50%;
+      display: inline-block; //other wise we cannot use the box model.
+      position:absolute;
+      top: -.4rem;
+      left:0px;
+
+      &::after {
+        content: "";// always with after pseudo element we need to specify the content and display.
+        display: block;
+        height: 1.3rem;
+        width:1.3rem;
+        border-radius: 50%;
+        background-color: $color-primary;
+        position: absolute;// the parent can be abolute as well. It just needs to be specified. Which is the radio-button.
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);// we want to position this right in the middle of the radio button.
+        opacity: 0;// only when you trigger the label we want this to become opacty 1
+        transition: opacity .2s;
+       }
+    }
+    // every radio button has a custom checked pseudo class. When the radio button is pressed
+    //the checked psuedo class in activated. We want to manipulate our custom checked styling above.
+
+    &__radio-input:checked + &__radio-label &__radio-button::after{ // we want to manipulate the form__radio-input checked class on the label
+    // via our span but our span element is not a direct child of the radio-input, it is the child of radio-label so we need to go
+    // through radio-label which is a sibling of radio-input then radio-label will select its child radio-button. And what we really want is
+    //is the after of the radio-button here. So now we can manipulate radio-input:checked.
+    //span is a descandant of label not input thats why we need to go through label.
+    opacity: 1;
+
+    }
+    // this is the same way we can style checked boxes. They also have the checked psuedo class.
+  }
+

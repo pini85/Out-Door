@@ -5,19 +5,47 @@
   padding: 0;
   box-sizing: inherit;
   //It is better practice to inherit border-boxing because if for example
-  //we want to use a plugin. It is easier to modify the boz-sizing.
+  //we want to use a plugin. It is easier to modify the box-sizing.
 }
 
 html {
   /* We want the root font-size to be 10px so we can easily convert rem. But if its is 10px
   then if a user wants to change the font-size they cannot. So we convert it to percentages.
-  The default font-size is 16px and we want it to 10px so 10 / 16 = 0.625
+  Usually the default font-size for browsers is 16px and we want it to 10px so 10 / 16 = 0.625
   So 0.625 * 16 = 10px if the user changes the font size to 20px then the root
   default size will be 12.5px 0.625 * 20 = 12.5 */
   //This defines what 1 rem will be
   font-size: 62.5%;
+
+
+
+
+  @include respond(tab-land) {// width < 1200?
+    font-size: 56.25%; // 1 rem = 9px, 9/16 = 56.25%
+  }
+
+  @include respond(tab-port) {//wdith < 900?
+    font-size: 50%; // 1rem = 8px, 8/16 = 50%
+  }
+
+  // @include respond(phone) {
+  //   font-size: 50%;
+  // }
+
+  // If the tab port is 50%, the same as phone. Then the phone will take the 50%
+  // from the tab-port because it is max 900 which the phone wil be included
+
+  @include respond(big-desktop) {
+    font-size: 75%; // 1rem = 12, 12/16 = 75%
+  }
 }
 body {
   box-sizing: border-box;
-  color: $color-grey-dark;
+  padding: 3rem;
+
+  @include respond(tab-port) { padding: 0; }
 }
+
+//in media queries always put the largest ones first. Because if we have a screen for example of 600px it and we have 2 queries that are
+// < 600 it will have conflicting declarations and so the last declaration will apply.
+//We dont want the < 1200 which is saying apply styles if it is less than 1200 which 600 applys. We want < 900 which is closer to 600.

@@ -21,7 +21,7 @@
 @keyframes walk{
 
   0% {
-    opacity: 0
+    opacity: 0;
   }
 
   4% {
@@ -39,7 +39,25 @@
   }
 }
 
+@keyframes walk-mobile{
+
+  0% {
+    opacity: 0;
+  }
+
+  4% {
+    opacity: 0.15;
+  }
+
+  70%{
+    opacity:0;
+  }
 
 
+  to {
+    opacity: 0;
+    transform: translate(450px, -1000px);
+  }
+}
 
 

@@ -9,8 +9,70 @@
 @mixin foot-animation {
   display: inline-block;
   position: relative;
-  animation: walk 25s steps(15, end);
+  animation: walk 15s steps(10, end);
   animation-fill-mode: backwards;
   animation-iteration-count: infinite;
 
 }
+
+@mixin foot-animation-mobile {
+  display: inline-block;
+  position: relative;
+  animation: walk-mobile 15s steps(15, end);
+  animation-fill-mode: backwards;
+  animation-iteration-count: infinite;
+
+}
+
+
+//Media Query Manager
+/*
+0-600px: phone
+600-900px: tab-port
+900-1200px: tab-land
+[1200-1800]: is where our normal styles apply
+1800px > : big-desktop
+
+ORDER: base + typography > general layout + grid > page layout > components
+*/
+
+@mixin respond($breakpoint) {
+
+  @if $breakpoint == phone-small {
+    @media(max-width: 27.5em) { @content};
+  }
+  @if $breakpoint == phone {
+    @media(max-width: 37.5em) { @content };
+  }
+  @if $breakpoint == tab-port {
+    @media(max-width: 56.25em) { @content };
+  }
+  @if $breakpoint == tab-land {
+    @media(max-width: 75em) { @content };
+  }
+  @if $breakpoint == big-desktop {
+    @media(min-width: 112.5em) { @content };
+  }
+}
+
+
+/*
+we are using content. It works better than an argument because
+you can put a whole block of code inside it
+
+Media query max-width: em or rem will not be effected with out font-size in the html.
+So 1 em or rem will be the default font size of 16px.
+
+We are using em not px. Like before if the user will change the default font size it will
+not effect the media queries. Also we are not using rem because it has been tested and em
+standed out.
+
+1em = 16px so 600px / 16 = 37.5em
+
+
+For more about media queries look at the base.scss
+*/
+
+
+
+

@@ -3,6 +3,24 @@
   top: 67vh;
   left: 15vw;
   animation-delay: 1.2s;
+
+  @include respond(tab-port) {
+    top: 70vh;
+    left: 12vw;
+  }
+
+  @include respond(phone) {
+    top: 68vh;
+    left: 15vw;
+    @include foot-animation-mobile;
+    animation-delay: 1.2s;
+  }
+
+  @include respond(phone-small) {
+    top: 63vh;
+    left: 23vw;
+  }
+
 }
 
 .foot-print-left {
@@ -10,8 +28,53 @@
   top: 69vh;
   right: 4vw;
   animation-delay: 1.7s;
+
+  @include respond(big-desktop) {
+    top: 62vh;
+    right: 5vw;
+  }
+
+  @include respond(tab-land) {
+    top: 60vh;
+    right: 9vw;
+  }
+
+  @include respond(tab-port) {
+    top: 71vh;
+    right: 31vw;
+  }
+
+  @include respond(phone) {
+    @include foot-animation-mobile;
+    top: 70vh;
+    right: 27vw;
+    animation-delay: 1.7s;
+  }
+
+  @include respond(phone-small) {
+    top: 66vh;
+    right: 16vw;
+
+  }
 }
 
 .foot-print-img {
   height: 20rem;
+}
+
+//MOBILE//
+
+.foot-print-mobile-img {
+  display: none;
+}
+
+@include respond(phone) {
+  .foot-print-img {
+     display: none;
+   }
+
+   .foot-print-mobile-img {
+     display: block;
+     height: 11rem;
+   }
 }

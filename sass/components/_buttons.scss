@@ -1,15 +1,18 @@
 .btn {
-
+  &,// a form button is not an a anchor tag so it does not have the link and visited psuedo elements. So if we have a custom button
+  //for a form we need to select the btn class for it to get styled.
   &:link,
   &:visited {
   padding: 1.5rem 4rem;
   text-decoration: none;
   display: inline-block; /* to get a gap between the content and the button */
-  color: $color-grey-dark;
   border-radius: 10rem;
   transition: all .2s;
   position: relative;
   font-size: $default-font-size;
+  //Below is only for the <button> element for the form. It gets automatically a border and no pointer. We want to change that
+  border: none;
+  cursor: pointer;
 }
 //3rd level nesting. And you should only nest maximum 3 levels.
   &:hover {
@@ -21,16 +24,32 @@
 }
   }
 
-  &:active {
+  &:active,
+  &:focus {// this is only for the <button> element on the form. It gets created automatically but we want to customize it. As always we should
+    //never have no outline for reasons go to the form component.
+    outline: none;
     transform: translateY(-0.1rem);
     box-shadow: 0 .5rem 1rem rgba($color-black,.2);
   }
+
   //3rd level nesting. And you should only nest maximum 3 levels.
-  &--white { background-color: $color-white;
-    &:after {
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    &::after {
       background-color: $color-white;
     }
 
+  }
+   &--green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-primary;
+    }
   }
 
   &::after {
@@ -59,7 +78,6 @@
 
   border-bottom: 1px solid $color-primary;
   transition: all .2s;
-
   }
 
   &:hover {

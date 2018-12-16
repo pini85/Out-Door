@@ -1,19 +1,18 @@
 
 //Functionality
+
 .card {
   perspective: 150rem; // in order to make perspective to work you need to put it on the parent element and handle the rotation on the
    //child element this is why we need to create a new div. To make a child element and put all the rotation logic there.
    // you can use use transfrom: perspective() to a child element but that will effect only the child element. We want to effect all
    // child elements that are inside this parent element.
    position: relative;
-   height: 50rem;// we need to give this the same height as &__side because the parents height collapsed because the elements are taken
+   height: 52rem;// we need to give this the same height as &__side because the parents height collapsed because the elements are taken
    //away from their natural flow for declaring them position:absolute. If not our persepctive wont come into place.
   &__side {
-  color: white;
-  font-size: 3rem;
   background-color: red;
-  height: 50rem;
-  transition: all 1.1s ease;
+  height: 52rem;
+  transition: all .8s ease;
   position: absolute;
   top: 0;
   left: 0;
@@ -34,7 +33,15 @@
        //for everybody to see.
 
       &--1 {
-        background-image: linear-gradient(to bottom right, $color-secondary-light 0%, $color-secondary-dark 74%);
+        background-image: linear-gradient(to bottom right, $color-secondary-light, $color-secondary-dark);
+      }
+
+       &--2 {
+        background-image: linear-gradient(to bottom right, $color-primary-light, $color-primary-dark);
+      }
+
+       &--3 {
+        background-image: linear-gradient(to bottom right, $color-tertiary-light, $color-tertiary-dark);
       }
     }
   }
@@ -50,26 +57,127 @@
   &:hover &__side--back {
     transform: rotateY(0);
   }
+
   //Front side styling
+
   &__picture {
     height: 23rem;
     background-size: cover;
     background-blend-mode: color;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-    -webkit-clip-path: polygon(0 0 100% 0 100% 80%, 0 100%);
+    // border-top-left: 3px;
+    // border-top-right: 3px;// we had to do this manually. On top we had overflow:hidden but when you apply clip path for some reason it doesnt apply to it.
+    // this works in chrome. Check if it works on firefox etc without this
+    &--1 {
+     background-image: linear-gradient(to bottom right, $color-secondary-light, $color-secondary-dark), url(../img/mountain.jpg);
+    }
+
+    &--2 {
+    background-image: linear-gradient(to bottom right, $color-primary-light, $color-primary-dark), url(../img/forest.jpg);
+    }
+
+    &--3 {
+      background-image: linear-gradient(to bottom right, $color-tertiary-light, $color-tertiary-dark), url(../img/nat-7.jpg);
+
+    }
+
+  }
+
+   &__heading {
+      font-size: 2.8rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      text-align: right;
+      color: $color-white;
+      position: absolute;
+      top: 12rem;
+      right: 2rem;
+  }
+
+  &__heading-span {// to make the box-declaration-break to work we need to create a new div for it to live inside.
+    padding: 1rem 3.5rem;
+    box-decoration-break: clone;//we are treating the line of text as 2 elements for the padding property
+    //otherwise the padding will be on one whole element and it wont pad evenly.
+    //It simply applies all the declarations that we have in the selector to all the boxes that are created by an element.
+    -webkit-box-decoration-break: clone;
+
+
 
 
     &--1 {
-     background-image: linear-gradient(to bottom right, $color-secondary-light 0%, $color-secondary-dark 74%), url(../img/mountain.jpg);
 
+      background-image: linear-gradient(to bottom right,
+      rgba($color-secondary-light, .85),
+      rgba($color-secondary-dark, .85));
     }
+
     &--2 {
 
+      background-image: linear-gradient(to bottom right,
+      rgba($color-primary-light, .85),
+      rgba($color-primary-dark, .85));
     }
+
     &--3 {
 
+      background-image: linear-gradient(to bottom right,
+      rgba($color-tertiary-light, .85),
+      rgba($color-tertiary-dark, .85));
     }
+  }
+
+  &__details {
+    padding: 2rem;
+
+
+    ul {
+      list-style: none;
+      width: 80%;// we want the underline but we dont want it to go to the whole width.
+      margin: 0 auto;//we are setting a block element inside a block element.
+
+      li {
+
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-grey-light;
+        }
+
+
+      }
+    }
+  }
+
+  //Back side styling
+
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__price-box {
+    text-align: center;
+    color: $color-white;
+    margin-bottom: 8rem;
+
+  }
+
+  &__price-only {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+
+  }
+
+  &__price-value {
+    font-size: 6rem;
+    font-weight: 100;
+
   }
 }
 
- // background-image: linear-gradient(to bottom right, rgba($color-secondary-light, .8), rgba($color-secondary-dark, .8)), url(../img/mountain.jpg);
+
