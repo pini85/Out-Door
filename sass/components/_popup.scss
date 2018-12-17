@@ -12,25 +12,37 @@
   visibility: hidden;
   transition: all .3s;
 
-  &__content {
-    position: absolute;
-    background-color: white;
-    box-shadow: 0 2rem 4rem rgba($color-black, .2);
-    border-radius: 3px;
-    width: 75%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) scale(.25);
-    opacity: 0;
-    display: table;//displaying both left and right as table cells makes them the same height
-    //We are faking it that this is a table.
-    overflow: hidden;//images was covering the border-radious
-    transition: all .5s .2s;// .2s is a delay. So we first see the blackb ackground which is the .popup
-    }
+    &__content {
+      position: absolute;
+      background-color: white;
+      box-shadow: 0 2rem 4rem rgba($color-black, .2);
+      border-radius: 3px;
+      width: 75%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(.25);
+      opacity: 0;
+      display: table;//displaying both left and right as table cells makes them the same height
+      //We are faking it that this is a table.
+      overflow: hidden;//images was covering the border-radious
+      transition: all .5s .2s;// .2s is a delay. So we first see the blackb ackground which is the .popup
+
+        @include respond(tab-land) {
+        width: 100%;
+        }
+     }
+
+
 
     &__left {
       width: 33.3333333%;
       display: table-cell;
+
+      @include respond(phone) {
+        display: inline-block;
+        width: auto;
+      }
+
 
     }
 
@@ -41,11 +53,25 @@
       //the table-cell.
       padding: 0rem 5rem;
 
+
+      @include respond(phone) {
+        display: inline-block;
+        width: auto;
+        text-align: center;
+      }
+
     }
 
     &__image {
       display:block;
       width: 100%;
+
+      @include respond(tab-port) { margin: 9rem 0rem; }
+      @include respond(phone) {
+        margin: 0;
+        width: 49.7%;
+        display: inline-block;
+      }
 
     }
 
@@ -59,6 +85,10 @@
 
       hyphens: auto;//only works on chrome android and IE Firefox
       //<html lang="en"> you need to put this in your html.
+
+        @include respond(phone) {
+          column-count: 1 ;
+        }
 
     }
 
@@ -100,6 +130,13 @@
       &:hover { color: $color-primary; }
 
      }
+  }
+
+  &__btn {
+    @include respond(phone) {
+      margin-bottom: 3rem;
+    }
+
   }
 
 }

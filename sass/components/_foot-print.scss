@@ -5,8 +5,10 @@
   animation-delay: 1.2s;
 
   @include respond(tab-port) {
-    top: 70vh;
-    left: 12vw;
+    @include foot-animation-tablet;
+    top: 67vh;
+    left: 15vw;
+    animation-delay: 1.2s;
   }
 
   @include respond(phone) {
@@ -17,8 +19,8 @@
   }
 
   @include respond(phone-small) {
-    top: 63vh;
-    left: 23vw;
+    top: 70vh;
+    left: 20vw;
   }
 
 }
@@ -40,20 +42,22 @@
   }
 
   @include respond(tab-port) {
+    @include foot-animation-tablet;
+    animation-delay: 1.7s;
     top: 71vh;
-    right: 31vw;
+    right: 26vw;
   }
 
   @include respond(phone) {
     @include foot-animation-mobile;
     top: 70vh;
-    right: 27vw;
+    right: 20vw;
     animation-delay: 1.7s;
   }
 
   @include respond(phone-small) {
-    top: 66vh;
-    right: 16vw;
+    top: 72vh;
+    right: 24vw;
 
   }
 }

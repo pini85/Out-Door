@@ -59,6 +59,17 @@ For more about media queries look at the base.scss
     opacity: 0;
     transform: translate(450px, -1000px); } }
 
+@keyframes walk-tablet {
+  0% {
+    opacity: 0; }
+  4% {
+    opacity: 0.15; }
+  70% {
+    opacity: 0; }
+  to {
+    opacity: 0;
+    transform: translate(900px, -1000px); } }
+
 *,
 *::after,
 *::before {
@@ -73,15 +84,15 @@ html {
   So 0.625 * 16 = 10px if the user changes the font size to 20px then the root
   default size will be 12.5px 0.625 * 20 = 12.5 */
   font-size: 62.5%; }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
   @media (max-width: 75em) {
     html {
       font-size: 56.25%; } }
   @media (max-width: 56.25em) {
     html {
       font-size: 50%; } }
-  @media (min-width: 112.5em) {
-    html {
-      font-size: 75%; } }
 
 body {
   box-sizing: border-box;
@@ -154,6 +165,9 @@ body {
   font-size: 1.6rem;
   font-weight: 700;
   text-transform: uppercase; }
+  @media (max-width: 56.25em) {
+    .heading-tertiary {
+      font-size: 1.7rem; } }
 
 .paragraph {
   font-size: 1.6rem; }
@@ -168,9 +182,15 @@ body {
 
 .u-margin-bottom-medium {
   margin-bottom: 4rem; }
+  @media (max-width: 56.25em) {
+    .u-margin-bottom-medium {
+      margin-bottom: 2rem; } }
 
 .u-margin-bottom-big {
   margin-bottom: 8rem; }
+  @media (max-width: 56.25em) {
+    .u-margin-bottom-big {
+      margin-bottom: 4rem; } }
 
 .u-margin-top-medium {
   margin-top: 4rem; }
@@ -263,8 +283,14 @@ body {
   animation-delay: 1.2s; }
   @media (max-width: 56.25em) {
     .foot-print-right {
-      top: 70vh;
-      left: 12vw; } }
+      display: inline-block;
+      position: relative;
+      animation: walk-tablet 15s steps(15, end);
+      animation-fill-mode: backwards;
+      animation-iteration-count: infinite;
+      top: 67vh;
+      left: 15vw;
+      animation-delay: 1.2s; } }
   @media (max-width: 37.5em) {
     .foot-print-right {
       top: 68vh;
@@ -275,10 +301,10 @@ body {
       animation-fill-mode: backwards;
       animation-iteration-count: infinite;
       animation-delay: 1.2s; } }
-  @media (max-width: 27.5em) {
+  @media (max-width: 25em) {
     .foot-print-right {
-      top: 63vh;
-      left: 23vw; } }
+      top: 70vh;
+      left: 20vw; } }
 
 .foot-print-left {
   display: inline-block;
@@ -299,8 +325,14 @@ body {
       right: 9vw; } }
   @media (max-width: 56.25em) {
     .foot-print-left {
+      display: inline-block;
+      position: relative;
+      animation: walk-tablet 15s steps(15, end);
+      animation-fill-mode: backwards;
+      animation-iteration-count: infinite;
+      animation-delay: 1.7s;
       top: 71vh;
-      right: 31vw; } }
+      right: 26vw; } }
   @media (max-width: 37.5em) {
     .foot-print-left {
       display: inline-block;
@@ -309,12 +341,12 @@ body {
       animation-fill-mode: backwards;
       animation-iteration-count: infinite;
       top: 70vh;
-      right: 27vw;
+      right: 20vw;
       animation-delay: 1.7s; } }
-  @media (max-width: 27.5em) {
+  @media (max-width: 25em) {
     .foot-print-left {
-      top: 66vh;
-      right: 16vw; } }
+      top: 72vh;
+      right: 24vw; } }
 
 .foot-print-img {
   height: 20rem; }
@@ -336,13 +368,20 @@ body {
   text-align: center;
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
-  transition: transform .3s; }
+  transition: transform .3s;
+  height: 30rem; }
+  @media (max-width: 56.25em) {
+    .feature-box {
+      padding: 6rem 3rem 0rem 3rem; } }
   .feature-box__icon {
     background: linear-gradient(to right, #7ed56f, #28b485);
     font-size: 6rem;
     margin-bottom: 2rem;
     -webkit-background-clip: text;
     color: transparent; }
+    @media (max-width: 56.25em) {
+      .feature-box__icon {
+        margin-bottom: 3rem; } }
   .feature-box:hover {
     transform: scale(1.03) translateY(-1.5rem);
     box-shadow: 0 2.5rem 5rem rgba(0, 0, 0, 0.15); }
@@ -356,23 +395,52 @@ body {
     border-radius: 2px;
     transition: all .3s;
     outline-offset: 1rem; }
+    @media (max-width: 56.25em) {
+      .composition__photo {
+        position: relative;
+        float: left;
+        width: 33.33333333333333333%;
+        box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2); } }
     .composition__photo--p1 {
       left: 0;
-      top: -2rem; }
+      top: 1rem; }
+      @media (max-width: 56.25em) {
+        .composition__photo--p1 {
+          top: 0;
+          transform: scale(1.3); } }
     .composition__photo--p2 {
       right: 0;
       top: 2rem; }
+      @media (max-width: 56.25em) {
+        .composition__photo--p2 {
+          top: 0;
+          transform: scale(1.5);
+          z-index: 1; } }
     .composition__photo--p3 {
       left: 20%;
       top: 10rem; }
+      @media (max-width: 56.25em) {
+        .composition__photo--p3 {
+          top: 0;
+          left: 0;
+          transform: scale(1.3); } }
     .composition__photo:hover {
       outline: 1.5rem solid rgba(85, 197, 122, 0.6);
       transform: scale(1.05);
       box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
       z-index: 1;
       transform: translateY(-0.5rem); }
+      @media (max-width: 56.25em) {
+        .composition__photo:hover {
+          transform: scale(1.5);
+          outline: none;
+          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+          z-index: 2; } }
   .composition:hover .composition__photo:not(:hover) {
     transform: scale(0.95); }
+    @media (max-width: 56.25em) {
+      .composition:hover .composition__photo:not(:hover) {
+        transform: scale(1.1); } }
 
 .card {
   perspective: 150rem;
@@ -451,7 +519,8 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); }
+    transform: translate(-50%, -50%);
+    text-align: center; }
   .card__price-box {
     text-align: center;
     color: #fff;
@@ -462,6 +531,33 @@ body {
   .card__price-value {
     font-size: 6rem;
     font-weight: 100; }
+  @media (max-width: 56.25em) {
+    .card {
+      height: auto;
+      border-radius: 3px;
+      background-color: #fff;
+      box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15); }
+      .card__details {
+        padding: 1rem 3rem; }
+      .card__side {
+        height: auto;
+        position: relative;
+        box-shadow: none; }
+        .card__side--back {
+          transform: rotateY(0);
+          -webkit-clip-path: polygon(0 11%, 100% 0, 100% 100%, 0% 100%);
+          clip-path: polygon(0 11%, 100% 0, 100% 100%, 0% 100%); }
+      .card__cta {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: translate(0);
+        width: 100%;
+        padding: 7rem 4rem 4rem 4rem; }
+      .card__price-box {
+        margin-bottom: 3rem; }
+      .card__price-value {
+        font-size: 5rem; } }
 
 .story {
   width: 75%;
@@ -475,9 +571,20 @@ body {
   /*we added 3 rem more because of the transform above*/
   font-size: 1.6rem;
   transform: skewX(-12deg); }
+  @media (max-width: 56.25em) {
+    .story {
+      width: 100%;
+      padding: 4rem;
+      padding-left: 7rem; } }
+  @media (max-width: 37.5em) {
+    .story {
+      transform: skewX(0); } }
   .story > * {
     /*this should work with all children but since we have already transform in shape it wont work there*/
     transform: skewX(12deg); }
+    @media (max-width: 37.5em) {
+      .story > * {
+        transform: skewX(0); } }
   .story__shape {
     position: relative;
     height: 15rem;
@@ -497,6 +604,12 @@ body {
     /*we don't use margins to separate the circle and the text because the circle is floated.
     Anytime an element is a circle try not to use margins.*/
     /*We need to add skewX to shape as well since they already have a transform property. In the future this will not be the case*/ }
+    @media (max-width: 56.25em) {
+      .story__shape {
+        transform: translate(-5rem, -1rem) skewX(12deg); } }
+    @media (max-width: 37.5em) {
+      .story__shape {
+        transform: translate(-2rem, -1rem) skewX(0); } }
   .story__img {
     height: 100%;
     /*because this image is inside the &__shape which was a fixed height and width*/
@@ -506,6 +619,9 @@ body {
     /* because we used the animation transform it gave a wierd result.
     Each time we use animation and it doesnt work as we want it to backface-visibility usually fixes it */
     transition: all .5s; }
+  @media (max-width: 56.25em) {
+    .story__text {
+      margin-top: 1rem; } }
   .story__caption {
     position: absolute;
     top: 50%;
@@ -547,11 +663,30 @@ body {
   background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url(../img/nat-10.jpg);
   background-size: 100%;
   border-radius: 3px;
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
-  height: 50rem; }
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2); }
+  @media (max-width: 75em) {
+    .book {
+      background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 60%, transparent 50%), url(../img/nat-10.jpg);
+      background-size: cover; } }
+  @media (max-width: 56.25em) {
+    .book {
+      background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 60%, transparent 50%), url(../img/nat-10.jpg);
+      width: 185%;
+      margin-left: -43.5%; } }
+  @media (max-width: 37.5em) {
+    .book {
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%), url(../img/nat-10.jpg);
+      width: 100%;
+      margin-left: 0%; } }
   .book__form {
     width: 50%;
     padding: 6rem; }
+    @media (max-width: 75em) {
+      .book__form {
+        width: 60%; } }
+    @media (max-width: 37.5em) {
+      .book__form {
+        width: 100%; } }
 
 .form__group:not(:last-child) {
   margin-bottom: 2rem; }
@@ -568,6 +703,9 @@ body {
   border: none;
   border-bottom: 3px solid transparent;
   transition: all .4s; }
+  @media (max-width: 37.5em) {
+    .form__input {
+      width: 100%; } }
   .form__input:focus {
     outline: none;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
@@ -593,6 +731,10 @@ body {
 .form__radio-group {
   width: 49%;
   display: inline-block; }
+  @media (max-width: 37.5em) {
+    .form__radio-group {
+      width: 50%;
+      margin-bottom: 2.5rem; } }
 
 .form__radio-input {
   display: none; }
@@ -653,17 +795,37 @@ body {
     display: table;
     overflow: hidden;
     transition: all .5s .2s; }
+    @media (max-width: 75em) {
+      .popup__content {
+        width: 100%; } }
   .popup__left {
     width: 33.3333333%;
     display: table-cell; }
+    @media (max-width: 37.5em) {
+      .popup__left {
+        display: inline-block;
+        width: auto; } }
   .popup__right {
     width: 66.6666667%;
     display: table-cell;
     vertical-align: middle;
     padding: 0rem 5rem; }
+    @media (max-width: 37.5em) {
+      .popup__right {
+        display: inline-block;
+        width: auto;
+        text-align: center; } }
   .popup__image {
     display: block;
     width: 100%; }
+    @media (max-width: 56.25em) {
+      .popup__image {
+        margin: 9rem 0rem; } }
+    @media (max-width: 37.5em) {
+      .popup__image {
+        margin: 0;
+        width: 49.7%;
+        display: inline-block; } }
   .popup__text {
     font-size: 1.4rem;
     margin-bottom: 4rem;
@@ -671,6 +833,9 @@ body {
     column-gap: 4rem;
     column-rule: 1px solid #eee;
     hyphens: auto; }
+    @media (max-width: 37.5em) {
+      .popup__text {
+        column-count: 1; } }
   .popup:target {
     opacity: 1;
     visibility: visible; }
@@ -688,11 +853,23 @@ body {
     transition: all .2s; }
     .popup__close:link:hover, .popup__close:visited:hover {
       color: #55c57a; }
+  @media (max-width: 37.5em) {
+    .popup__btn {
+      margin-bottom: 3rem; } }
 
 .section-about {
   background-color: #f7f7f7;
   padding: 25rem 0;
   margin-top: -20vh; }
+  @media (max-width: 56.25em) {
+    .section-about {
+      padding: 28rem 0; } }
+  @media (max-width: 37.5em) {
+    .section-about {
+      padding: 24rem 0 15rem 0; } }
+  @media (max-width: 25em) {
+    .section-about {
+      padding: 22rem 0 15rem 0; } }
 
 .section-features {
   margin-top: -11rem;
@@ -702,15 +879,36 @@ body {
   transform: skewY(-7deg); }
   .section-features > * {
     transform: skewY(7deg); }
+  @media (max-width: 56.25em) {
+    .section-features {
+      padding: 11rem 0rem 6rem 0rem; } }
+  @media (max-width: 37.5em) {
+    .section-features {
+      padding: 10rem 0 4rem 0; } }
+  @media (max-width: 25em) {
+    .section-features {
+      padding: 10rem 5rem 4rem 5rem; } }
 
 .section-tours {
   margin-top: -11rem;
   background-color: #f7f7f7;
   padding: 25rem 0 15rem 0; }
+  @media (max-width: 56.25em) {
+    .section-tours {
+      padding: 20rem 0 10rem 0; } }
+  @media (max-width: 37.5em) {
+    .section-tours {
+      padding: 17rem 0 5rem 0; } }
 
 .section-stories {
   position: relative;
   padding: 15rem 0; }
+  @media (max-width: 56.25em) {
+    .section-stories {
+      padding: 10rem 0 5rem 0; } }
+  @media (max-width: 37.5em) {
+    .section-stories {
+      padding: 7rem 0 5rem 0; } }
 
 .section-booking {
   padding: 15rem 0;
@@ -719,8 +917,15 @@ body {
 .row {
   max-width: 114rem;
   margin: 0 auto; }
+  @media (max-width: 56.25em) {
+    .row {
+      max-width: 50rem;
+      padding: 0 3rem; } }
   .row:not(:last-child) {
     margin-bottom: 8rem; }
+    @media (max-width: 56.25em) {
+      .row:not(:last-child) {
+        margin-bottom: 6rem; } }
   .row::after {
     content: "";
     display: table;
@@ -729,6 +934,10 @@ body {
     float: left; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 6rem; }
+    @media (max-width: 56.25em) {
+      .row [class^="col-"] {
+        width: 100% !important;
+        margin-bottom: 6rem; } }
   .row .col-1-of-2 {
     width: calc((100% - 6rem) / 2); }
   .row .col-1-of-3 {
@@ -751,6 +960,10 @@ body {
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   position: relative; }
+  @media (max-width: 56.25em) {
+    .header {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 86 vh, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 86vh, 0 100%); } }
   .header__logo-box {
     position: absolute;
     top: 4rem;
@@ -772,6 +985,9 @@ body {
   padding: 10rem 0;
   font-size: 1.4rem;
   color: #eee; }
+  @media (max-width: 56.25em) {
+    .footer {
+      padding: 8rem 0; } }
   .footer__logo-box {
     text-align: center; }
   .footer__logo {
@@ -781,6 +997,10 @@ body {
     border-top: 1px solid #777;
     padding: 2rem;
     display: inline-block; }
+    @media (max-width: 56.25em) {
+      .footer__navigation {
+        width: 100%;
+        text-align: center; } }
   .footer__list {
     list-style: none; }
   .footer__item {
@@ -795,6 +1015,9 @@ body {
       text-transform: uppercase;
       transition: all .2s;
       color: #eee; }
+      @media (max-width: 56.25em) {
+        .footer__link:link, .footer__link:visited {
+          font-size: 1.1rem; } }
     .footer__link:hover, .footer__link:active {
       color: #55c57a;
       transform: rotate(5deg) scale(1.3); }
@@ -802,6 +1025,11 @@ body {
     border-top: 1px solid #777;
     padding: 2rem;
     display: inline-block; }
+    @media (max-width: 56.25em) {
+      .footer__copy-right {
+        width: 100%;
+        text-align: center;
+        float: none; } }
 
 .navigation__checkbox {
   display: none; }
@@ -818,6 +1046,14 @@ body {
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
   text-align: center;
   cursor: pointer; }
+  @media (max-width: 56.25em) {
+    .navigation__button {
+      top: 4rem;
+      right: 4rem; } }
+  @media (max-width: 37.5em) {
+    .navigation__button {
+      top: 3rem;
+      right: 3rem; } }
 
 .navigation__background {
   position: fixed;
@@ -829,6 +1065,14 @@ body {
   z-index: 1000;
   background-image: radial-gradient(#55c57a, #28b485);
   transition: all 0.8s cubic-bezier(0.86, 0, 0.07, 1); }
+  @media (max-width: 56.25em) {
+    .navigation__background {
+      top: 4.5rem;
+      right: 4.5rem; } }
+  @media (max-width: 37.5em) {
+    .navigation__background {
+      top: 3.5rem;
+      right: 3.5rem; } }
 
 .navigation__nav-container {
   height: 100vh;
@@ -863,6 +1107,9 @@ body {
   background-size: 230%;
   transition: all .4s;
   display: inline-block; }
+  @media (max-width: 25em) {
+    .navigation__link:link, .navigation__link:visited {
+      font-size: 2rem; } }
 
 .navigation__link:hover, .navigation__link:active {
   background-position: 100%;

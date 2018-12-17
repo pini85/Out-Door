@@ -2,9 +2,18 @@
   max-width: $grid-width;
   margin: 0 auto;
 
+   @include respond(tab-port) {
+          max-width: 50rem;
+          padding: 0 3rem;
+        }
+
     &:not(:last-child) {
       margin-bottom: $gutter-vertical;// Selects all children except the last child.
       //we doh't want the last row to have a margin bottom
+
+       @include respond(tab-port) {
+          margin-bottom: $gutter-vertical-small;
+        }
     }
 
     @include clearfix;
@@ -15,11 +24,17 @@
       float: left;
        &:not(:last-child) {
         margin-right: $gutter-horizontal;
+       }
+
+       @include respond(tab-port) {
+        width: 100% !important;//use important so we know for sure it will override the below width. Making this like a row. only one column per row.
+        margin-bottom: $gutter-vertical-small;// we want a gap between columns.
+
       }
     }
 
     .col-1-of-2 {
-      width: calc((100% - #{$gutter-horizontal}) / 2) ;
+      width: calc((100% - #{$gutter-horizontal}) / 2);
 
       }
 

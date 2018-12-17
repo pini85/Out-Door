@@ -23,6 +23,15 @@
     text-align: center;//we can center the custom hamburger because we set it to inline-block.
     cursor: pointer;
 
+    @include respond(tab-port) {
+      top: 4rem;
+      right: 4rem;
+    }
+
+    @include respond(phone) {
+      top: 3rem;
+      right: 3rem;
+    }
   }
 
   &__background {
@@ -36,8 +45,16 @@
     background-image: radial-gradient($color-primary, $color-primary-dark);//coming from the center rather from the sides.
     transition: all .8s cubic-bezier(0.86, 0, 0.07, 1);
 
-
+    @include respond(tab-port) {
+      top: 4.5rem;
+      right: 4.5rem;
     }
+
+    @include respond(phone) {
+      top: 3.5rem;
+      right: 3.5rem;
+    }
+  }
 
   &__nav-container {
 // we need a container for the nav because we want all the children to be fixed and we can center the nav easily with text-align:center.
@@ -89,6 +106,10 @@
       //so only the first color of the gradie nt is showing and the 2nd color is hidden on the right of the elements.
       transition: all .4s;
       display: inline-block;// so you can apply padding and transform on them.
+
+      @include respond(phone-small) {
+        font-size: 2rem;
+      }
 
     }
 

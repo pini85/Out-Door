@@ -17,8 +17,9 @@ html {
   //This defines what 1 rem will be
   font-size: 62.5%;
 
-
-
+  @include respond(big-desktop) {
+    font-size: 75%; // 1rem = 12, 12/16 = 75%
+  }
 
   @include respond(tab-land) {// width < 1200?
     font-size: 56.25%; // 1 rem = 9px, 9/16 = 56.25%
@@ -35,10 +36,8 @@ html {
   // If the tab port is 50%, the same as phone. Then the phone will take the 50%
   // from the tab-port because it is max 900 which the phone wil be included
 
-  @include respond(big-desktop) {
-    font-size: 75%; // 1rem = 12, 12/16 = 75%
-  }
 }
+
 body {
   box-sizing: border-box;
   padding: 3rem;

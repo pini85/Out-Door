@@ -13,7 +13,7 @@
 //background-image: linear-gradient(105deg,rgba($color-white, .9) 50%, transparent 50%) so now what we say is 50% be white then the other 50%
 //become a color which is transparent. There will be a solid line and no gradient occurs because it is 50% 50% not 40% 50% for example.
 
-  background-size: 100%;
+  background-size: 100%;// it makes sure that the image fits in the container from the x direction
   // if we used Background:cover it would scale the background image to be as large as possible so that the
  // background area is completely covered by the background image. Some parts of the background image may not be in view within the
   //background positioning area.
@@ -22,11 +22,33 @@
   // but here you can do both.
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
-  height: 50rem;
+
+  @include respond(tab-land) {
+   background-image: linear-gradient(105deg,rgba($color-white, .9) 60%, transparent 50%), url(../img/nat-10.jpg);
+   background-size: cover;//it did not occupy the height 100%. So this will fix it.
+  }
+
+  @include respond(tab-port) {
+    background-image: linear-gradient(105deg,rgba($color-white, .9) 60%, transparent 50%), url(../img/nat-10.jpg);
+    width: 185%;
+    margin-left: -43.5%;
+  }
+
+  @include respond(phone) {
+    background-image: linear-gradient(to right, rgba($color-white, .9)0%, rgba($color-white, .9) 100%), url(../img/nat-10.jpg);
+    width:100%;
+    margin-left: 0%;
+
+  }
+
+
 
   &__form {
     width: 50%;
     padding: 6rem;
+
+    @include respond(tab-land) { width: 60%; }
+    @include respond(phone) { width: 100% }
   }
 }
 
@@ -53,6 +75,10 @@
       border-bottom: 3px solid transparent;// as soon as we focus on the input it creates a 3px border botton
       //and it makes our design a bit off. But with this it will stay the same.
       transition: all .4s;// animation from red to green. green to red.
+
+      @include respond(phone) {
+        width: 100%;
+      }
 
       &:focus {
         outline: none;// same like we had in the composition. The browser gives input automatically one
@@ -93,6 +119,11 @@
     &__radio-group {
       width: 49%;
       display: inline-block; // we could of used floats to set them side by side. But inline-block shuold do as well.
+
+      @include respond(phone) {
+        width: 50%;
+        margin-bottom: 2.5rem;
+      }
     }
 
     &__radio-input { display:none; } // we want to hide the html custom radio button. And not give it space at all.
@@ -142,4 +173,5 @@
     }
     // this is the same way we can style checked boxes. They also have the checked psuedo class.
   }
+
 

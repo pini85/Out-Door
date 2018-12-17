@@ -9,9 +9,18 @@
   font-size: $default-font-size;
   transform: skewX(-12deg);
 
+  @include respond(tab-port) {
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+  }
+
+  @include respond(phone) { transform:skewX(0);}
 
   & > * { /*this should work with all children but since we have already transform in shape it wont work there*/
     transform: skewX(12deg);
+
+    @include respond(phone) { transform: skewX(0); }
 
   }
 
@@ -33,6 +42,11 @@
     transform: translateX(-3rem) skewX(12deg); /*we don't use margins to separate the circle and the text because the circle is floated.
     Anytime an element is a circle try not to use margins.*/
     /*We need to add skewX to shape as well since they already have a transform property. In the future this will not be the case*/
+
+    @include respond(tab-port) { transform: translate(-5rem, -1rem) skewX(12deg); }
+    @include respond(phone) {
+      transform: translate(-2rem, -1rem) skewX(0);
+    }
   }
 
   &__img {
@@ -45,6 +59,10 @@
   }
 
   &__text {
+
+    @include respond(tab-port) {
+      margin-top: 1rem;
+    }
 
   }
 

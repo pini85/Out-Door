@@ -5,6 +5,10 @@
   font-size: 1.4rem;
   color: $color-grey-light;
 
+   @include respond(tab-port) {
+      padding: 8rem 0;
+  }
+
 
     &__logo-box {
       text-align: center; } // the image is an inline element. And inline elements behave just like text.
@@ -21,6 +25,11 @@
       padding: 2rem;
       display: inline-block;// we want the border-top to stop where the list items stop. To do this we just display inline-block
       //which wil only take the space they need. Not like block which will take the whole width.
+
+        @include respond(tab-port) {
+          width: 100%;
+          text-align: center;
+        }
     }
 
     &__list {  list-style: none; }//so transform declarations apply.
@@ -45,6 +54,11 @@
          transition: all .2s;
          color: $color-grey-light;
 
+         @include respond(tab-port) {
+          font-size:1.1rem;
+         }
+
+
       }
 
       &:hover,
@@ -59,6 +73,12 @@
       padding: 2rem;
       display: inline-block;// we want the border-top to stop where the list items stop. To do this we just display inline-block
       //which wil only take the space they need. Not like block which will take the whole width.
+
+      @include respond(tab-port) {
+        width: 100%;
+        text-align: center;
+        float: none;
+        }
 
     }
 }
