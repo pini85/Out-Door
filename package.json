@@ -4,13 +4,11 @@
   "description": "Landing page for out-door",
   "main": "index.js",
   "scripts": {
-    "compile:sass": "node-sass sass/main.scss css/style.css -w",
-    "compile:autoprefixer": "node webpack.config.js"
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
   },
   "author": "Pinchas",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^9.3.1",
     "node-sass": "^4.10.0",
     "postcss-loader": "^3.0.0"
   },
