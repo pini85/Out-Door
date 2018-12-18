@@ -73,19 +73,34 @@
     // border-top-right: 3px;// we had to do this manually. On top we had overflow:hidden but when you apply clip path for some reason it doesnt apply to it.
     // this works in chrome. Check if it works on firefox etc without this
     &--1 {
-     background-image: linear-gradient(to bottom right, $color-secondary-light, $color-secondary-dark), url(../img/mountain.jpg);
+     background-image: linear-gradient(to bottom right, $color-secondary-light, $color-secondary-dark), url(../img/mountain-small.jpg);
+      @media(min-resolution: 192dpi) and (min-width: 37.5em),
+          (min-width: 125em) {
+      background-image: linear-gradient(to bottom right, $color-secondary-light, $color-secondary-dark),
+      url(../img/mountain.jpg);
+      }
     }
 
     &--2 {
-    background-image: linear-gradient(to bottom right, $color-primary-light, $color-primary-dark), url(../img/forest.jpg);
+    background-image: linear-gradient(to bottom right, $color-primary-light, $color-primary-dark), url(../img/forest-small.jpg);
+      @media(min-resolution: 192dpi) and (min-width: 37.5em),
+            (min-width: 125em) {
+      background-image: linear-gradient(to bottom right, $color-primary-light, $color-primary-dark),
+      url(../img/forest.jpg);
+      }
     }
 
     &--3 {
-      background-image: linear-gradient(to bottom right, $color-tertiary-light, $color-tertiary-dark), url(../img/nat-7.jpg);
+      background-image: linear-gradient(to bottom right, $color-tertiary-light, $color-tertiary-dark), url(../img/nat-7-small.jpg);
+        @media(min-resolution: 192dpi) and (min-width: 37.5em),
+              (min-width: 125em) {
+        background-image: linear-gradient(to bottom right, $color-tertiary-light, $color-tertiary-dark),
+        url(../img/nat-7.jpg);
 
     }
 
   }
+}
 
    &__heading {
       font-size: 2.8rem;

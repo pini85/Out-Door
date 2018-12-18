@@ -27,20 +27,18 @@
       overflow: hidden;//images was covering the border-radious
       transition: all .5s .2s;// .2s is a delay. So we first see the blackb ackground which is the .popup
 
-        @include respond(tab-land) {
-        width: 100%;
-        }
+        @include respond(tab-land) { width: 90%; }
      }
 
 
 
     &__left {
-      width: 33.3333333%;
+      width: 35%;
       display: table-cell;
 
-      @include respond(phone) {
+      @include respond(tab-land) {
         display: inline-block;
-        width: auto;
+        width: 102%;//so both images on tab-land and lower dont have a gap.
       }
 
 
@@ -54,7 +52,7 @@
       padding: 0rem 5rem;
 
 
-      @include respond(phone) {
+      @include respond(tab-land) {
         display: inline-block;
         width: auto;
         text-align: center;
@@ -66,10 +64,10 @@
       display:block;
       width: 100%;
 
-      @include respond(tab-port) { margin: 9rem 0rem; }
-      @include respond(phone) {
+      // @include respond(tab-port) { margin: 9rem 0rem; }
+      @include respond(tab-land) {
         margin: 0;
-        width: 49.7%;
+        width: 49%;
         display: inline-block;
       }
 
@@ -86,7 +84,7 @@
       hyphens: auto;//only works on chrome android and IE Firefox
       //<html lang="en"> you need to put this in your html.
 
-        @include respond(phone) {
+        @include respond(tab-land) {
           column-count: 1 ;
         }
 
@@ -133,9 +131,7 @@
   }
 
   &__btn {
-    @include respond(phone) {
-      margin-bottom: 3rem;
-    }
+    @include respond(tab-land) { margin-bottom: 3rem; }
 
   }
 

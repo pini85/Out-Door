@@ -4,12 +4,25 @@
   background-image: linear-gradient(to right bottom,
   rgba($color-primary, 0.8),
   rgba($color-primary-dark, 0.8)),
-  url(../img/hero.jpg);
+  url(../img/hero-small.jpg);//we have a small image because we want to only hit the larger one on the media query.
   background-size: cover;
   background-position: top; /* the top will not move when resizing. */
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   position: relative;
+//we are saying the resolution needs to be minimum 192dpi. Dot Per Inch. Which is the retina display of the macbook mot phones. A 2x.
+//lower than that use the smaller image. But on mobile screen it is a 2x(192dpi) but a smaller image is enough so we take a 2nd argument
+//that the minimum width needs to be 600 so excluding mobile phones.
+//The small image is enough because it is 1200px and if a screen is 600 then the 2x is 1200.
+    @media(min-resolution: 192dpi) and (min-width: 37.5em),// this comma is acting like an OR.
+          (min-width: 125em) { //we want the bigger image to emerge once the screen width is over 2000 even on a 1x screen.
+      background-image: linear-gradient(to right bottom,
+      rgba($color-primary, 0.8),
+      rgba($color-primary-dark, 0.8)),
+      url(../img/hero.jpg);
+    }
+
+
 
    @include respond(tab-port) {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 86   vh, 0 100%);

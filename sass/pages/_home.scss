@@ -14,9 +14,17 @@
   background-image: linear-gradient(to right bottom,
   rgba($color-primary, 0.8),
   rgba($color-primary-dark, 0.8)),
-  url(../img/nat-4.jpg);
+  url(../img/nat-4-small.jpg);
   background-size: cover;
   transform: skewY(-7deg);
+
+   @media(min-resolution: 192dpi) and (min-width: 37.5em),// this comma is acting like an OR.
+          (min-width: 125em) { //we want the bigger image to emerge once the screen width is over 2000 even on a 1x screen.
+      background-image: linear-gradient(to right bottom,
+      rgba($color-primary, 0.8),
+      rgba($color-primary-dark, 0.8)),
+      url(../img/nat-4.jpg);
+    }
 
   & > * { // we want to modify the boxes so that they skey to the opposite direction. We are using the > the direct children * all
     //of them. if we didnt use > we would be aiming at all the children but we want only the direct children. The first child Which in our case is the row.

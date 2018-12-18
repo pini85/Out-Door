@@ -1,5 +1,5 @@
 .book {
-  background-image: linear-gradient(105deg,rgba($color-white, .9) 50%, transparent 50%), url(../img/nat-10.jpg);
+  background-image: linear-gradient(105deg,rgba($color-white, .9) 50%, transparent 50%), url(../img/nat-10-small.jpg);
   //To establish this effect we could also make a new element and use clip path with opacity but there is a simplier way:
 //Above you need clip-path but with this you do not need. Different tools for different things.
 // linear-gradient(rgba($color-white, .9),rgba(orangered, .9)) it means color white to orange red both have 90% opacity
@@ -23,6 +23,11 @@
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
 
+  @media(min-resolution: 192dpi) and (min-width: 37.5em),
+        (min-width: 125em) {
+  background-image: linear-gradient(105deg,rgba($color-white, .9) 50%, transparent 50%), url(../img/nat-10.jpg);
+  }
+
   @include respond(tab-land) {
    background-image: linear-gradient(105deg,rgba($color-white, .9) 60%, transparent 50%), url(../img/nat-10.jpg);
    background-size: cover;//it did not occupy the height 100%. So this will fix it.
@@ -35,7 +40,7 @@
   }
 
   @include respond(phone) {
-    background-image: linear-gradient(to right, rgba($color-white, .9)0%, rgba($color-white, .9) 100%), url(../img/nat-10.jpg);
+    background-image: linear-gradient(to right, rgba($color-white, .9)0%, rgba($color-white, .9) 100%), url(../img/nat-10-small.jpg);
     width:100%;
     margin-left: 0%;
 

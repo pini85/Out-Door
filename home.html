@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- -->
+       <!--  <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
         <link rel="stylesheet" href="css/style.css">
@@ -76,9 +76,31 @@
             <div class="col-1-of-2">
               <div class="composition">
                 <div class="composition__box">
-                <img src="img/nat-1-large.jpg" alt="Image 1" class="composition__photo composition__photo--p1">
+                  <!-- Below is resolution switching-->
+                  <!-- Before the browser downloads the images. We tell them the different widths of the 2 pictures -->
+                  <!-- But this alone doesnt give enough information to the browser to choose which picture to download. The browser
+                  only knows its viewport width and pixel density. We give more information with the sizes attribute. We inform the browser appormximantly width of the image at different viewport widths. With that information together with the width descriptor the browser can then figure out which is the perfect image to use for the current width port width and current display resolution. We make a breakpoints and tell the browser the viewport width. The last "300px" means what is the default pixel width of the image if none of the others apply. We are also including src="" a fallback for older browsers. -->
+                  <img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
+                  sizes="(max-width:56.25em)13vw,
+                         (max-width:37.5em)20vw,
+                         (max-width:25em)30vw 300px"
+                         alt="Image 1" class="composition__photo composition__photo--p1" src="img/nat-1-large.jpg">
+                  <img srcset="img/nat-2.jpg 300w, img/nat-2-large.jpg 1000w"
+                  sizes="(max-width:56.25em)13vw,
+                         (max-width:37.5em)20vw,
+                         (max-width:25em)30vw 300px"
+                         alt="Image 2" class="composition__photo composition__photo--p2" src="img/nat-2-large.jpg">
+                  <img srcset="img/nat-3.jpg 300w, img/nat-3-large.jpg 1000w"
+                  sizes="(max-width:56.25em)13vw,
+                         (max-width:37.5em)20vw,
+                         (max-width:25em)30vw 300px"
+                         alt="Image 3" class="composition__photo composition__photo--p3" src="img/nat-3-large.jpg">
+
+
+
+                <!-- <img src="img/nat-1-large.jpg" alt="Image 1" class="composition__photo composition__photo--p1">
                 <img src="img/nat-2-large.jpg" alt="Image 2" class="composition__photo composition__photo--p2">
-                <img src="img/nat-3-large.jpg" alt="Image 3" class="composition__photo composition__photo--p3">
+                <img src="img/nat-3-large.jpg" alt="Image 3" class="composition__photo composition__photo--p3"> -->
               </div>
             </div>
 
@@ -248,7 +270,7 @@
           <div class="row">
             <div class="story">
               <figure class="story__shape">
-                <img src="img/nat-8.jpg" class="story__img" alt="Person on a tour-1">
+                <img srcset="img/nat-8-stories-small.jpg 1x, img/nat-8-stories.jpg 2x" class="story__img" alt="Person on a tour-1" src="img/nat-8-stories.jpg">
                 <figcaption class="story__caption">Mary Smith</figcaption>
               </figure>
               <h3 class="heading-teritary">
@@ -262,7 +284,7 @@
           <div class="row">
             <div class="story">
               <figure class="story__shape">
-                <img src="img/nat-9.jpg" class="story__img" alt="Person on a tour-2">
+                <img srcset="img/nat-9-stories-small.jpg 1x, img/nat-9-stories.jpg 2x" class="story__img" alt="Person on a tour-2" src="img/nat-9-stories.jpg">
                 <figcaption class="story__caption">Jack Wilson</figcaption>
               </figure>
               <h3 class="heading-teritary">
@@ -324,7 +346,17 @@
       </main>
       <footer class="footer">
         <div class="footer__logo-box u-margin-bottom-big">
-          <img src="img/logo-green-2x.png" alt="Full logo" class="footer__logo">
+          <!-- we use picture so we can use source. We can add our image classes here. -->
+          <picture class="footer__logo">
+             <!-- Below is resolution art direction together with density switching -->
+            <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2px" media="(max-width:37.5em)">
+              <!-- We also included src for older browsers. -->
+              <!-- we can have multiple sources for multiple media queries -->
+              <!-- Below is resolution switching -->
+          <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Full logo" src="img/logo-green-2x.png">
+          <!-- srcset forces the html to render a picture depending on the density resolution -->
+          </picture>
+          <!-- <img src="img/logo-green-1x.png" alt="Full logo" class="footer__logo"> Original code -->
         </div>
         <div class="row">
           <div class="col-1-of-2">
@@ -351,8 +383,8 @@
       <div class="popup" id="popup">
         <div class="popup__content">
           <div class="popup__left">
-            <img src="img/nat-8.jpg" alt="Tour photo" class="popup__image">
-            <img src="img/nat-9.jpg" alt="Tour photo" class="popup__image">
+            <img srcset="img/nat-8-popup-small.jpg 1000w, img/nat-8-popup.jpg 1900w" sizes="(max-width:56.25em)44vw,(max-width:25em)45vw" alt="Tour photo" class="popup__image">
+            <img srcset="img/nat-9-popup-small.jpg 1000w, img/nat-9-popup.jpg 1900w" sizes="(max-width:56.25em)44vw,(max-width:25em)45vw" alt="Tour photo" class="popup__image">
           </div>
           <div class="popup__right">
             <a href="#section-tours" class="popup__close">&times;</a>

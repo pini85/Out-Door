@@ -28,7 +28,7 @@
 .foot-print-left {
   @include foot-animation;
   top: 69vh;
-  right: 4vw;
+  right: 15vw;
   animation-delay: 1.7s;
 
   @include respond(big-desktop) {
@@ -51,7 +51,7 @@
   @include respond(phone) {
     @include foot-animation-mobile;
     top: 70vh;
-    right: 20vw;
+    right: 24vw;
     animation-delay: 2.5s;
   }
 
