@@ -32,6 +32,7 @@
        transform: rotateY(180deg);// the back card in its inital state is in the back. Only when we hover it it will come to the front
        //for everybody to see.
 
+
       &--1 {
         background-image: linear-gradient(to bottom right, $color-secondary-light, $color-secondary-dark);
       }
@@ -52,6 +53,8 @@
 // and we dont want to put the hover in the card__side because later we will have more sides. Also it makes more sense that we want to hover
 //the main block.
     transform: rotateY(-180deg);
+
+    @include respond(tab-land) { transform: rotateY(0); }
   }
 
   &:hover &__side--back {
