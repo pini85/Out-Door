@@ -686,7 +686,8 @@ body {
     padding: 6rem; }
     @media (max-width: 75em) {
       .book__form {
-        width: 60%; } }
+        width: 60%;
+        padding: 2rem; } }
     @media (max-width: 37.5em) {
       .book__form {
         width: 100%; } }

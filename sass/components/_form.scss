@@ -47,7 +47,11 @@
     width: 50%;
     padding: 6rem;
 
-    @include respond(tab-land) { width: 60%; }
+    @include respond(tab-land) {
+      width: 60%;
+      padding: 2rem;
+    }
+
     @include respond(phone) { width: 100% }
   }
 }
