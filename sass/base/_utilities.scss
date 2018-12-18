@@ -13,7 +13,12 @@
   @include respond(tab-port) { margin-bottom: 4rem; }
 }
 
-.u-margin-top-medium { margin-top: 4rem; }
+.u-margin-top-medium {
+  margin-top: 4rem;
+  @include respond(phone) {
+    margin: 2rem 0;//quick fix for form for mobile
+   }
+  }
 
 .u-margin-top-big { margin-top: 8rem; }
 

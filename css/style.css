@@ -194,6 +194,9 @@ body {
 
 .u-margin-top-medium {
   margin-top: 4rem; }
+  @media (max-width: 37.5em) {
+    .u-margin-top-medium {
+      margin: 2rem 0; } }
 
 .u-margin-top-big {
   margin-top: 8rem; }
