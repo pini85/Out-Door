@@ -145,6 +145,8 @@
         font-size: 1.5rem;
         padding: 1rem;
 
+        @include respond(phone) { padding: 0.5rem; }
+
         &:not(:last-child) {
           border-bottom: 1px solid $color-grey-light;
         }
@@ -185,11 +187,16 @@
 
 
 
+
   @include respond(tab-port) {
   height: auto;
   border-radius: 3px;//so the "back" gets a border as well.
   background-color: $color-white;// the gap between the front and back due to the polygon will be white.
   box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+    &__picture {
+      @include respond(phone) { height: 22rem; }
+    }
 
     &__details {
       padding: 1rem 3rem;
@@ -222,6 +229,8 @@
     transform: translate(0);
     width: 100%;
     padding: 7rem 4rem 4rem 4rem;
+
+    @include respond(phone) { padding: 4rem 4rem 3rem 4rem; }
   }
 
   &__price-box { margin-bottom: 3rem; }
@@ -230,4 +239,13 @@
 
   }
 }
+
+.card-btn {
+  margin-top: 10rem;
+
+  @include respond(phone) {
+    margin-top: -5rem;
+  }
+}
+
 

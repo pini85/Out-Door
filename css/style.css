@@ -516,6 +516,9 @@ body {
         text-align: center;
         font-size: 1.5rem;
         padding: 1rem; }
+        @media (max-width: 37.5em) {
+          .card__details ul li {
+            padding: 0.5rem; } }
         .card__details ul li:not(:last-child) {
           border-bottom: 1px solid #eee; }
   .card__cta {
@@ -539,7 +542,11 @@ body {
       height: auto;
       border-radius: 3px;
       background-color: #fff;
-      box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15); }
+      box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15); } }
+  @media (max-width: 56.25em) and (max-width: 37.5em) {
+    .card__picture {
+      height: 22rem; } }
+  @media (max-width: 56.25em) {
       .card__details {
         padding: 1rem 3rem; }
       .card__side {
@@ -556,11 +563,21 @@ body {
         left: 0;
         transform: translate(0);
         width: 100%;
-        padding: 7rem 4rem 4rem 4rem; }
+        padding: 7rem 4rem 4rem 4rem; } }
+    @media (max-width: 56.25em) and (max-width: 37.5em) {
+      .card__cta {
+        padding: 4rem 4rem 3rem 4rem; } }
+  @media (max-width: 56.25em) {
       .card__price-box {
         margin-bottom: 3rem; }
       .card__price-value {
         font-size: 5rem; } }
+
+.card-btn {
+  margin-top: 10rem; }
+  @media (max-width: 37.5em) {
+    .card-btn {
+      margin-top: -5rem; } }
 
 .story {
   width: 75%;
@@ -896,7 +913,7 @@ body {
 .section-tours {
   margin-top: -11rem;
   background-color: #f7f7f7;
-  padding: 25rem 0 15rem 0; }
+  padding: 25rem 0 10rem 0; }
   @media (max-width: 56.25em) {
     .section-tours {
       padding: 20rem 0 10rem 0; } }
