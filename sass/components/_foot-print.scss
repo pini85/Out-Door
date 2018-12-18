@@ -15,7 +15,7 @@
     top: 68vh;
     left: 15vw;
     @include foot-animation-mobile;
-    animation-delay: 1.2s;
+    animation-delay: 1.9s;
   }
 
   @include respond(phone-small) {
@@ -52,7 +52,7 @@
     @include foot-animation-mobile;
     top: 70vh;
     right: 20vw;
-    animation-delay: 1.7s;
+    animation-delay: 2.5s;
   }
 
   @include respond(phone-small) {

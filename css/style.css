@@ -53,7 +53,7 @@ For more about media queries look at the base.scss
     opacity: 0; }
   4% {
     opacity: 0.15; }
-  70% {
+  65% {
     opacity: 0; }
   to {
     opacity: 0;
@@ -297,10 +297,10 @@ body {
       left: 15vw;
       display: inline-block;
       position: relative;
-      animation: walk-mobile 15s steps(15, end);
+      animation: walk-mobile 20s steps(20, end);
       animation-fill-mode: backwards;
       animation-iteration-count: infinite;
-      animation-delay: 1.2s; } }
+      animation-delay: 1.9s; } }
   @media (max-width: 25em) {
     .foot-print-right {
       top: 70vh;
@@ -337,12 +337,12 @@ body {
     .foot-print-left {
       display: inline-block;
       position: relative;
-      animation: walk-mobile 15s steps(15, end);
+      animation: walk-mobile 20s steps(20, end);
       animation-fill-mode: backwards;
       animation-iteration-count: infinite;
       top: 70vh;
       right: 20vw;
-      animation-delay: 1.7s; } }
+      animation-delay: 2.5s; } }
   @media (max-width: 25em) {
     .foot-print-left {
       top: 72vh;
@@ -872,7 +872,7 @@ body {
       padding: 24rem 0 15rem 0; } }
   @media (max-width: 25em) {
     .section-about {
-      padding: 22rem 0 15rem 0; } }
+      padding: 20rem 0 15rem 0; } }
 
 .section-features {
   margin-top: -11rem;

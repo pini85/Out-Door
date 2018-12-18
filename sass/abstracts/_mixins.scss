@@ -18,7 +18,7 @@
 @mixin foot-animation-mobile {
   display: inline-block;
   position: relative;
-  animation: walk-mobile 15s steps(15, end);
+  animation: walk-mobile 20s steps(20, end);
   animation-fill-mode: backwards;
   animation-iteration-count: infinite;
 
