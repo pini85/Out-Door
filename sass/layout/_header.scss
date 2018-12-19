@@ -48,7 +48,7 @@
     position: absolute;
     top: 40%;
     left: 50%;
-    transform: translate(-50%, -50%); /* It is now 50% from the left. So the whole element
+    transform: translate(-48%, -50%); /* It is now 50% from the left. So the whole element
     but we want it to be in the middle so -50% will will take 50% of the whole element on
     the left side and 50% from the top. So it will be in the middle. */
   }
