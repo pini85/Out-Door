@@ -14,6 +14,12 @@
 //lower than that use the smaller image. But on mobile screen it is a 2x(192dpi) but a smaller image is enough so we take a 2nd argument
 //that the minimum width needs to be 600 so excluding mobile phones.
 //The small image is enough because it is 1200px and if a screen is 600 then the 2x is 1200.
+    @media(max-width: 27em) {
+      background-image: linear-gradient(to right bottom,
+      rgba($color-primary, 0.8),
+      rgba($color-primary-dark, 0.8)),
+      url(../img/hero-extra-small.jpg);
+    }
     @media(min-resolution: 192dpi) and (min-width: 37.5em),// this comma is acting like an OR.
           (min-width: 125em) { //we want the bigger image to emerge once the screen width is over 2000 even on a 1x screen.
       background-image: linear-gradient(to right bottom,

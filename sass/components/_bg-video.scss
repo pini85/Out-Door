@@ -8,6 +8,8 @@
   opacity: .20;
   overflow: hidden; // it was covering also the padding of our website. So with this it does not.
 
+    @include respond(phone) { display:none; }
+
   &__content {
     width: 100%;
     height: 100%;
@@ -20,3 +22,4 @@
 
   }
 }
+
