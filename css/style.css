@@ -20,6 +20,9 @@ standed out.
 
 1em = 16px so 600px / 16 = 37.5em
 
+We add only screen because we want these queries to happen only when we see them on a screen. But if we want to print them for example
+for example we dont want the media queries to be applied.
+
 
 For more about media queries look at the base.scss
 */
@@ -84,22 +87,26 @@ html {
   So 0.625 * 16 = 10px if the user changes the font size to 20px then the root
   default size will be 12.5px 0.625 * 20 = 12.5 */
   font-size: 62.5%; }
-  @media (min-width: 112.5em) {
+  @media only screen and (min-width: 112.5em) {
     html {
       font-size: 75%; } }
-  @media (max-width: 75em) {
+  @media only screen and (max-width: 75em) {
     html {
       font-size: 56.25%; } }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     html {
       font-size: 50%; } }
 
 body {
   box-sizing: border-box;
   padding: 3rem; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     body {
       padding: 0; } }
+
+::selection {
+  background: #55c57a;
+  color: #fff; }
 
 body {
   font-family: "Lato", sans-serif;
@@ -120,7 +127,7 @@ body {
     animation-duration: 4s;
     backface-visibility: hidden;
     /* weird bug that the elements shake fix */ }
-    @media (max-width: 37.5em) {
+    @media only screen and (max-width: 37.5em) {
       .heading-primary--main {
         font-size: 5rem;
         letter-spacing: 1.75rem; } }
@@ -137,7 +144,7 @@ body {
     backface-visibility: hidden;
     margin-bottom: 5rem;
     z-index: -2; }
-    @media (max-width: 37.5em) {
+    @media only screen and (max-width: 37.5em) {
       .heading-primary--sub {
         letter-spacing: .5rem; } }
 
@@ -151,21 +158,18 @@ body {
   color: transparent;
   display: inline-block;
   transition: all .2s; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .heading-secondary {
       font-size: 3rem; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .heading-secondary {
       font-size: 2.5rem; } }
-  .heading-secondary:hover {
-    transform: skewY(2deg) skewX(15deg) scale(1.1);
-    text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
 
 .heading-tertiary {
   font-size: 1.6rem;
   font-weight: 700;
   text-transform: uppercase; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .heading-tertiary {
       font-size: 1.7rem; } }
 
@@ -182,19 +186,19 @@ body {
 
 .u-margin-bottom-medium {
   margin-bottom: 4rem; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .u-margin-bottom-medium {
       margin-bottom: 2rem; } }
 
 .u-margin-bottom-big {
   margin-bottom: 8rem; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .u-margin-bottom-big {
       margin-bottom: 4rem; } }
 
 .u-margin-top-medium {
   margin-top: 4rem; }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .u-margin-top-medium {
       margin: 2rem 0; } }
 
@@ -278,13 +282,13 @@ body {
 .foot-print-right {
   display: inline-block;
   position: relative;
-  animation: walk 15s steps(10, end);
+  animation: walk 10s steps(10, end);
   animation-fill-mode: backwards;
   animation-iteration-count: infinite;
   top: 67vh;
   left: 15vw;
   animation-delay: 1.2s; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .foot-print-right {
       display: inline-block;
       position: relative;
@@ -294,17 +298,17 @@ body {
       top: 67vh;
       left: 15vw;
       animation-delay: 1.2s; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .foot-print-right {
       top: 68vh;
       left: 15vw;
       display: inline-block;
       position: relative;
-      animation: walk-mobile 20s steps(20, end);
+      animation: walk-mobile 15s steps(15, end);
       animation-fill-mode: backwards;
       animation-iteration-count: infinite;
       animation-delay: 1.9s; } }
-  @media (max-width: 25em) {
+  @media only screen and (max-width: 25em) {
     .foot-print-right {
       top: 70vh;
       left: 20vw; } }
@@ -312,41 +316,41 @@ body {
 .foot-print-left {
   display: inline-block;
   position: relative;
-  animation: walk 15s steps(10, end);
+  animation: walk 10s steps(10, end);
   animation-fill-mode: backwards;
   animation-iteration-count: infinite;
   top: 69vh;
   right: 15vw;
-  animation-delay: 1.7s; }
-  @media (min-width: 112.5em) {
+  animation-delay: 1.4s; }
+  @media only screen and (min-width: 112.5em) {
     .foot-print-left {
       top: 62vh;
       right: 5vw; } }
-  @media (max-width: 75em) {
+  @media only screen and (max-width: 75em) {
     .foot-print-left {
       top: 60vh;
       right: 9vw; } }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .foot-print-left {
       display: inline-block;
       position: relative;
       animation: walk-tablet 15s steps(15, end);
       animation-fill-mode: backwards;
       animation-iteration-count: infinite;
-      animation-delay: 1.7s;
+      animation-delay: 1.4s;
       top: 71vh;
       right: 26vw; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .foot-print-left {
       display: inline-block;
       position: relative;
-      animation: walk-mobile 20s steps(20, end);
+      animation: walk-mobile 15s steps(15, end);
       animation-fill-mode: backwards;
       animation-iteration-count: infinite;
       top: 70vh;
       right: 24vw;
-      animation-delay: 2.5s; } }
-  @media (max-width: 25em) {
+      animation-delay: 2.1s; } }
+  @media only screen and (max-width: 25em) {
     .foot-print-left {
       top: 72vh;
       right: 24vw; } }
@@ -357,7 +361,7 @@ body {
 .foot-print-mobile-img {
   display: none; }
 
-@media (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) {
   .foot-print-img {
     display: none; }
   .foot-print-mobile-img {
@@ -373,7 +377,7 @@ body {
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
   transition: transform .3s;
   height: 30rem; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .feature-box {
       padding: 6rem 3rem 0rem 3rem; } }
   .feature-box__icon {
@@ -382,7 +386,7 @@ body {
     margin-bottom: 2rem;
     -webkit-background-clip: text;
     color: transparent; }
-    @media (max-width: 56.25em) {
+    @media only screen and (max-width: 56.25em) {
       .feature-box__icon {
         margin-bottom: 3rem; } }
   .feature-box:hover {
@@ -398,7 +402,7 @@ body {
     border-radius: 2px;
     transition: all .3s;
     outline-offset: 1rem; }
-    @media (max-width: 56.25em) {
+    @media only screen and (max-width: 56.25em) {
       .composition__photo {
         position: relative;
         float: left;
@@ -407,14 +411,14 @@ body {
     .composition__photo--p1 {
       left: 0;
       top: 1rem; }
-      @media (max-width: 56.25em) {
+      @media only screen and (max-width: 56.25em) {
         .composition__photo--p1 {
           top: 0;
           transform: scale(1.3); } }
     .composition__photo--p2 {
       right: 0;
       top: 2rem; }
-      @media (max-width: 56.25em) {
+      @media only screen and (max-width: 56.25em) {
         .composition__photo--p2 {
           top: 0;
           transform: scale(1.5);
@@ -422,7 +426,7 @@ body {
     .composition__photo--p3 {
       left: 20%;
       top: 10rem; }
-      @media (max-width: 56.25em) {
+      @media only screen and (max-width: 56.25em) {
         .composition__photo--p3 {
           top: 0;
           left: 0;
@@ -433,7 +437,7 @@ body {
       box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
       z-index: 1;
       transform: translateY(-0.5rem); }
-      @media (max-width: 56.25em) {
+      @media only screen and (max-width: 56.25em) {
         .composition__photo:hover {
           transform: scale(1.5);
           outline: none;
@@ -441,7 +445,7 @@ body {
           z-index: 2; } }
   .composition:hover .composition__photo:not(:hover) {
     transform: scale(0.95); }
-    @media (max-width: 56.25em) {
+    @media only screen and (max-width: 56.25em) {
       .composition:hover .composition__photo:not(:hover) {
         transform: scale(1.1); } }
 
@@ -457,10 +461,12 @@ body {
     top: 0;
     left: 0;
     width: 100%;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: 3px;
     overflow: hidden;
-    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2); }
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
+    transform-style: preserve-3d; }
     .card__side--front {
       background-color: #fff; }
     .card__side--back {
@@ -473,7 +479,7 @@ body {
         background-image: linear-gradient(to bottom right, #2998ff, #5643fa); }
   .card:hover .card__side--front {
     transform: rotateY(-180deg); }
-    @media (max-width: 75em) {
+    @media only screen and (max-width: 75em) {
       .card:hover .card__side--front {
         transform: rotateY(0); } }
   .card:hover .card__side--back {
@@ -528,7 +534,7 @@ body {
         text-align: center;
         font-size: 1.5rem;
         padding: 1rem; }
-        @media (max-width: 37.5em) {
+        @media only screen and (max-width: 37.5em) {
           .card__details ul li {
             padding: 0.5rem; } }
         .card__details ul li:not(:last-child) {
@@ -549,16 +555,16 @@ body {
   .card__price-value {
     font-size: 6rem;
     font-weight: 100; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
     .card {
       height: auto;
       border-radius: 3px;
       background-color: #fff;
       box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15); } }
-  @media (max-width: 56.25em) and (max-width: 37.5em) {
+  @media only screen and (max-width: 56.25em) and (max-width: 37.5em), only screen and (hover: none) and (max-width: 37.5em) {
     .card__picture {
       height: 22rem; } }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
       .card__details {
         padding: 1rem 3rem; }
       .card__side {
@@ -576,10 +582,10 @@ body {
         transform: translate(0);
         width: 100%;
         padding: 7rem 4rem 4rem 4rem; } }
-    @media (max-width: 56.25em) and (max-width: 37.5em) {
+    @media only screen and (max-width: 56.25em) and (max-width: 37.5em), only screen and (hover: none) and (max-width: 37.5em) {
       .card__cta {
         padding: 4rem 4rem 3rem 4rem; } }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
       .card__price-box {
         margin-bottom: 3rem; }
       .card__price-value {
@@ -587,7 +593,7 @@ body {
 
 .card-btn {
   margin-top: 10rem; }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .card-btn {
       margin-top: -5rem; } }
 
@@ -603,18 +609,18 @@ body {
   /*we added 3 rem more because of the transform above*/
   font-size: 1.6rem;
   transform: skewX(-12deg); }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .story {
       width: 100%;
       padding: 4rem;
       padding-left: 7rem; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .story {
       transform: skewX(0); } }
   .story > * {
     /*this should work with all children but since we have already transform in shape it wont work there*/
     transform: skewX(12deg); }
-    @media (max-width: 37.5em) {
+    @media only screen and (max-width: 37.5em) {
       .story > * {
         transform: skewX(0); } }
   .story__shape {
@@ -636,10 +642,10 @@ body {
     /*we don't use margins to separate the circle and the text because the circle is floated.
     Anytime an element is a circle try not to use margins.*/
     /*We need to add skewX to shape as well since they already have a transform property. In the future this will not be the case*/ }
-    @media (max-width: 56.25em) {
+    @media only screen and (max-width: 56.25em) {
       .story__shape {
         transform: translate(-5rem, -1rem) skewX(12deg); } }
-    @media (max-width: 37.5em) {
+    @media only screen and (max-width: 37.5em) {
       .story__shape {
         transform: translate(-2rem, -1rem) skewX(0); } }
   .story__img {
@@ -651,7 +657,7 @@ body {
     /* because we used the animation transform it gave a wierd result.
     Each time we use animation and it doesnt work as we want it to backface-visibility usually fixes it */
     transition: all .5s; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .story__text {
       margin-top: 1rem; } }
   .story__caption {
@@ -686,7 +692,7 @@ body {
   z-index: -1;
   opacity: .20;
   overflow: hidden; }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .bg-video {
       display: none; } }
   .bg-video__content {
@@ -702,16 +708,16 @@ body {
   @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
     .book {
       background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url(../img/nat-10.jpg); } }
-  @media (max-width: 75em) {
+  @media only screen and (max-width: 75em) {
     .book {
       background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 60%, transparent 50%), url(../img/nat-10.jpg);
       background-size: cover; } }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .book {
       background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 60%, transparent 50%), url(../img/nat-10.jpg);
       width: 170%;
       margin-left: -34.5%; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .book {
       background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%), url(../img/nat-10-small.jpg);
       width: 100%;
@@ -719,11 +725,11 @@ body {
   .book__form {
     width: 50%;
     padding: 6rem; }
-    @media (max-width: 75em) {
+    @media only screen and (max-width: 75em) {
       .book__form {
         width: 60%;
         padding: 1rem 2rem; } }
-    @media (max-width: 37.5em) {
+    @media only screen and (max-width: 37.5em) {
       .book__form {
         width: 100%; } }
 
@@ -742,7 +748,7 @@ body {
   border: none;
   border-bottom: 3px solid transparent;
   transition: all .4s; }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .form__input {
       width: 100%; } }
   .form__input:focus {
@@ -770,7 +776,7 @@ body {
 .form__radio-group {
   width: 49%;
   display: inline-block; }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .form__radio-group {
       width: 50%;
       margin-bottom: 2.5rem; } }
@@ -821,6 +827,11 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: all .3s; }
+  @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+    .popup {
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      background-color: rgba(0, 0, 0, 0.3); } }
   .popup__content {
     position: absolute;
     background-color: white;
@@ -834,13 +845,13 @@ body {
     display: table;
     overflow: hidden;
     transition: all .5s .2s; }
-    @media (max-width: 75em) {
+    @media only screen and (max-width: 75em) {
       .popup__content {
         width: 90%; } }
   .popup__left {
-    width: 35%;
+    width: 40%;
     display: table-cell; }
-    @media (max-width: 75em) {
+    @media only screen and (max-width: 75em) {
       .popup__left {
         display: inline-block;
         width: 102%; } }
@@ -849,7 +860,7 @@ body {
     display: table-cell;
     vertical-align: middle;
     padding: 0rem 5rem; }
-    @media (max-width: 75em) {
+    @media only screen and (max-width: 75em) {
       .popup__right {
         display: inline-block;
         width: auto;
@@ -857,7 +868,7 @@ body {
   .popup__image {
     display: block;
     width: 100%; }
-    @media (max-width: 75em) {
+    @media only screen and (max-width: 75em) {
       .popup__image {
         margin: 0;
         width: 49%;
@@ -869,7 +880,7 @@ body {
     column-gap: 4rem;
     column-rule: 1px solid #eee;
     hyphens: auto; }
-    @media (max-width: 75em) {
+    @media only screen and (max-width: 75em) {
       .popup__text {
         column-count: 1; } }
   .popup:target {
@@ -889,7 +900,7 @@ body {
     transition: all .2s; }
     .popup__close:link:hover, .popup__close:visited:hover {
       color: #55c57a; }
-  @media (max-width: 75em) {
+  @media only screen and (max-width: 75em) {
     .popup__btn {
       margin-bottom: 3rem; } }
 
@@ -897,13 +908,13 @@ body {
   background-color: #f7f7f7;
   padding: 25rem 0;
   margin-top: -20vh; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .section-about {
       padding: 28rem 0; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .section-about {
       padding: 24rem 0 15rem 0; } }
-  @media (max-width: 25em) {
+  @media only screen and (max-width: 25em) {
     .section-about {
       padding: 19rem 0 15rem 0; } }
 
@@ -918,13 +929,13 @@ body {
       background-image: linear-gradient(to right bottom, rgba(85, 197, 122, 0.8), rgba(40, 180, 133, 0.8)), url(../img/nat-4.jpg); } }
   .section-features > * {
     transform: skewY(7deg); }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .section-features {
       padding: 11rem 0rem 6rem 0rem; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .section-features {
       padding: 10rem 0 4rem 0; } }
-  @media (max-width: 25em) {
+  @media only screen and (max-width: 25em) {
     .section-features {
       padding: 10rem 5rem 4rem 5rem; } }
 
@@ -932,20 +943,20 @@ body {
   margin-top: -11rem;
   background-color: #f7f7f7;
   padding: 25rem 0 10rem 0; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .section-tours {
       padding: 20rem 0 10rem 0; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .section-tours {
       padding: 17rem 0 5rem 0; } }
 
 .section-stories {
   position: relative;
   padding: 15rem 0; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .section-stories {
       padding: 10rem 0 5rem 0; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .section-stories {
       padding: 7rem 0 5rem 0;
       background-image: linear-gradient(to right bottom, rgba(250, 250, 250, 0.8), rgba(250, 250, 250, 0.8)), url(../img/nature-small.jpg);
@@ -961,13 +972,13 @@ body {
 .row {
   max-width: 114rem;
   margin: 0 auto; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .row {
       max-width: 50rem;
       padding: 0 3rem; } }
   .row:not(:last-child) {
     margin-bottom: 8rem; }
-    @media (max-width: 56.25em) {
+    @media only screen and (max-width: 56.25em) {
       .row:not(:last-child) {
         margin-bottom: 6rem; } }
   .row::after {
@@ -978,7 +989,7 @@ body {
     float: left; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 6rem; }
-    @media (max-width: 56.25em) {
+    @media only screen and (max-width: 56.25em) {
       .row [class^="col-"] {
         width: 100% !important;
         margin-bottom: 6rem; } }
@@ -996,21 +1007,24 @@ body {
     width: calc( 3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem); }
 
 .header {
-  height: 95vh;
+  height: 85vh;
   background-image: linear-gradient(to right bottom, rgba(85, 197, 122, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero-small.jpg);
   background-size: cover;
   background-position: top;
   /* the top will not move when resizing. */
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   position: relative; }
   @media (max-width: 27em) {
     .header {
       background-image: linear-gradient(to right bottom, rgba(85, 197, 122, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero-extra-small.jpg); } }
-  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), (min-width: 125em) {
     .header {
       background-image: linear-gradient(to right bottom, rgba(85, 197, 122, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg); } }
-  @media (max-width: 56.25em) {
+  @supports (clip-path: polygon(0 0)) or (webkit-clip-path: polygon(0 0)) {
+    .header {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+      height: 95vh; } }
+  @media only screen and (max-width: 56.25em) {
     .header {
       -webkit-clip-path: polygon(0 0, 100% 0, 100% 86 vh, 0 100%);
       clip-path: polygon(0 0, 100% 0, 100% 86vh, 0 100%); } }
@@ -1035,7 +1049,7 @@ body {
   padding: 10rem 0;
   font-size: 1.4rem;
   color: #eee; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .footer {
       padding: 8rem 0 0 0; } }
   .footer__logo-box {
@@ -1047,7 +1061,7 @@ body {
     border-top: 1px solid #777;
     padding: 2rem;
     display: inline-block; }
-    @media (max-width: 56.25em) {
+    @media only screen and (max-width: 56.25em) {
       .footer__navigation {
         width: 100%;
         text-align: center; } }
@@ -1065,7 +1079,7 @@ body {
       text-transform: uppercase;
       transition: all .2s;
       color: #eee; }
-      @media (max-width: 56.25em) {
+      @media only screen and (max-width: 56.25em) {
         .footer__link:link, .footer__link:visited {
           font-size: 1.5rem; } }
     .footer__link:hover, .footer__link:active {
@@ -1075,7 +1089,7 @@ body {
     border-top: 1px solid #777;
     padding: 2rem;
     display: inline-block; }
-    @media (max-width: 56.25em) {
+    @media only screen and (max-width: 56.25em) {
       .footer__copy-right {
         width: 100%;
         text-align: center;
@@ -1097,11 +1111,11 @@ body {
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
   text-align: center;
   cursor: pointer; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .navigation__button {
       top: 4rem;
       right: 4rem; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .navigation__button {
       top: 3rem;
       right: 3rem; } }
@@ -1116,11 +1130,11 @@ body {
   z-index: 1000;
   background-image: radial-gradient(#55c57a, #28b485);
   transition: all 0.8s cubic-bezier(0.86, 0, 0.07, 1); }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .navigation__background {
       top: 4.5rem;
       right: 4.5rem; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .navigation__background {
       top: 3.5rem;
       right: 3.5rem; } }
@@ -1158,7 +1172,7 @@ body {
   background-size: 230%;
   transition: all .4s;
   display: inline-block; }
-  @media (max-width: 25em) {
+  @media only screen and (max-width: 25em) {
     .navigation__link:link, .navigation__link:visited {
       font-size: 2rem; } }
 

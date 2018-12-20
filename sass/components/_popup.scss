@@ -12,6 +12,18 @@
   visibility: hidden;
   transition: all .3s;
 
+//backdrop is not supported on google chrome but is support is EI and safari so we implement "graceful degradation" with @support.
+//We are saying whoever supports this use these declarations.
+    @supports (-webkit-backdrop-filter: blur(10px)) or(backdrop-filter: blur(10px)) {
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      background-color: rgba($color-black, .3);
+    }
+
+
+
+
+
     &__content {
       position: absolute;
       background-color: white;
@@ -33,7 +45,7 @@
 
 
     &__left {
-      width: 35%;
+      width: 40%;
       display: table-cell;
 
       @include respond(tab-land) {
@@ -131,6 +143,7 @@
   }
 
   &__btn {
+
     @include respond(tab-land) { margin-bottom: 3rem; }
 
   }

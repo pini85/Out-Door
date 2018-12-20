@@ -17,10 +17,12 @@
   top: 0;
   left: 0;
   width: 100%;// we need to give a width 100% because we used position absolute. so both will be the same width no matter the content.
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;// this hides the back part of the element. So the front wont be visible when it is 180 deg.
   border-radius: 3px;
   overflow: hidden;//the image below is overflowing the parent element so blocking the border radious.
   box-shadow: 0 1.5rem 4rem rgba($color-black, .20);
+  transform-style: preserve-3d;
 
     &--front {
 
@@ -203,11 +205,15 @@
 
 
 
-  @include respond(tab-port) {
-  height: auto;
-  border-radius: 3px;//so the "back" gets a border as well.
-  background-color: $color-white;// the gap between the front and back due to the polygon will be white.
-  box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+  // @include respond(tab-port) {we want to specify another argument. We cannot do that if there is a mixin. So we write it manually.
+  @media only screen and (max-width: 56.25em),
+         only screen and (hover:none) {
+  //we had a problem in bigger tablets the media query above wouldnt apply because we set the width at 56.25em so we have a 2nd argument
+  //that is saying if the primary input of the device is a touch screen then do this. The opposite would be hover:hover.
+    height: auto;
+    border-radius: 3px;//so the "back" gets a border as well.
+    background-color: $color-white;// the gap between the front and back due to the polygon will be white.
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
 
     &__picture {
       @include respond(phone) { height: 22rem; }

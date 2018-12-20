@@ -29,7 +29,7 @@
   @include foot-animation;
   top: 69vh;
   right: 15vw;
-  animation-delay: 1.7s;
+  animation-delay: 1.4s;
 
   @include respond(big-desktop) {
     top: 62vh;
@@ -43,7 +43,7 @@
 
   @include respond(tab-port) {
     @include foot-animation-tablet;
-    animation-delay: 1.7s;
+    animation-delay: 1.4s;
     top: 71vh;
     right: 26vw;
   }
@@ -52,7 +52,7 @@
     @include foot-animation-mobile;
     top: 70vh;
     right: 24vw;
-    animation-delay: 2.5s;
+    animation-delay: 2.1s;
   }
 
   @include respond(phone-small) {

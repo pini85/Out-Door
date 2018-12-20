@@ -48,3 +48,11 @@ body {
 //in media queries always put the largest ones first. Because if we have a screen for example of 600px it and we have 2 queries that are
 // < 600 it will have conflicting declarations and so the last declaration will apply.
 //We dont want the < 1200 which is saying apply styles if it is less than 1200 which 600 applys. We want < 900 which is closer to 600.
+
+::selection {
+  background: $color-primary;
+  color: $color-white;
+
+}
+//the selection pseudo class changes the values of the selected elements. We want all elements once selected to have these values. We can
+//change it also to only specific elements.
