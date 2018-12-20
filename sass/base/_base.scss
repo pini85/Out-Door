@@ -56,15 +56,3 @@ body {
 }
 //the selection pseudo class changes the values of the selected elements. We want all elements once selected to have these values. We can
 //change it also to only specific elements.
-body::-webkit-scrollbar {
-    width: 1em;
-}
-
-body::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-}
-
-body::-webkit-scrollbar-thumb {
-  background-color: darkgrey;
-  outline: 1px solid black;
-}
