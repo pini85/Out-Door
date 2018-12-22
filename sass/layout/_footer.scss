@@ -62,7 +62,11 @@
       &:hover,
       &:active {
         color: $color-primary;
-        transform: rotate(5deg) scale(1.3);
+        transform: scale(1.1);
+         @include respond(tab-port){
+          color: $color-grey-light;
+          transform: none;
+        }
       }
     }
 
