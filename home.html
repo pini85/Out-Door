@@ -91,6 +91,7 @@
                   <!-- Before the browser downloads the images. We tell them the different widths of the 2 pictures -->
                   <!-- But this alone doesnt give enough information to the browser to choose which picture to download. The browser
                   only knows its viewport width and pixel density. We give more information with the sizes attribute. We inform the browser appormximantly width of the image at different viewport widths. With that information together with the width descriptor the browser can then figure out which is the perfect image to use for the current width port width and current display resolution. We make a breakpoints and tell the browser the viewport width. The last "300px" means what is the default pixel width of the image if none of the others apply. We are also including src="" a fallback for older browsers. -->
+                  <!-- We get the viewport width by dividing the picture pixels to the viewport. Eg, 150px/900px -->
                   <img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
                   sizes="(max-width:56.25em)13vw,
                          (max-width:37.5em)20vw,
@@ -374,7 +375,7 @@
 
 
             <ul class="footer__list">
-              <li class="footer__item"><a href="#" class="footer__link">Company</a></li>
+              <li class="footer__item"><a href="#" class="footer__link">C ompany</a></li>
               <li class="footer__item"><a href="#" class="footer__link">Contact us</a></li>
               <li class="footer__item"><a href="#" class="footer__link">Careers</a></li>
               <li class="footer__item"><a href="#" class="footer__link">Privacy policy</a></li>
