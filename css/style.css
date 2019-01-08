@@ -159,8 +159,7 @@ body {
   background-image: linear-gradient(to right, #7ed56f, #28b485);
   -webkit-background-clip: text;
   color: transparent;
-  display: inline-block;
-  transition: all .2s; }
+  display: inline-block; }
   @media only screen and (max-width: 56.25em) {
     .heading-secondary {
       font-size: 3rem; } }
@@ -230,9 +229,6 @@ body {
   transform: translateY(-0.3rem);
   /* to make it seen like it is moving towards the user */
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
-  .btn:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0; }
 
 .btn:active, .btn:focus {
   outline: none;
@@ -457,7 +453,6 @@ body {
   position: relative;
   height: 52rem; }
   .card__side {
-    background-color: red;
     height: 52rem;
     transition: all .8s ease;
     position: absolute;
@@ -1029,7 +1024,7 @@ body {
       height: 95vh; } }
   @media only screen and (max-width: 56.25em) {
     .header {
-      -webkit-clip-path: polygon(0 0, 100% 0, 100% 86 vh, 0 100%);
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 86vh, 0 100%);
       clip-path: polygon(0 0, 100% 0, 100% 86vh, 0 100%); } }
   .header__logo-box {
     position: absolute;

@@ -10,7 +10,6 @@
    height: 52rem;// we need to give this the same height as &__side because the parents height collapsed because the elements are taken
    //away from their natural flow for declaring them position:absolute. If not our persepctive wont come into place.
   &__side {
-  background-color: red;
   height: 52rem;
   transition: all .8s ease;
   position: absolute;

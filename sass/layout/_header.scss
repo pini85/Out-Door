@@ -39,7 +39,7 @@
 
 
    @include respond(tab-port) {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 86   vh, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 86vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 86vh, 0 100%);
    }
 

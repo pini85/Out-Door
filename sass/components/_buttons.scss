@@ -18,11 +18,12 @@
   &:hover {
     transform: translateY(-0.3rem); /* to make it seen like it is moving towards the user */
     box-shadow: 0 1rem 2rem rgba($color-black,.2);
-      &::after {
-      transform: scaleX(1.4) scaleY(1.6);
-      opacity: 0;
-}
+//       &::after {
+//       transform: scaleX(1.4) scaleY(1.6);
+//       opacity: 0;
+// }
   }
+
 
   &:active,
   &:focus {// this is only for the <button> element on the form. It gets created automatically but we want to customize it. As always we should

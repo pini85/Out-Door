@@ -52,7 +52,7 @@ body {
   -webkit-background-clip: text;// clips the background image only to the text not to the whole block.
   color: transparent;// we don't want to see the color, we only want to see the background color.
   display: inline-block;//we dont want the whole line to be a gradient, just the element so from block to inline-block is the soluton.
-  transition: all .2s;
+  //transition: all .2s;
 
   @include respond(tab-port) { font-size: 3rem; }
   @include respond(phone) {
